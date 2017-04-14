@@ -9,6 +9,18 @@
 #define SRC_HASHTABLEOPENADDRESSING_H_
 
 /****************************************************************************
+ * MACROS FOR PROBING TYPE                                         *
+ ****************************************************************************/
+#define TYPE_PROBING_LINEAR 1
+#define TYPE_PROBING_QUADRATURE 2
+#define TYPE_DOUBLE_HASHING 3
+
+/****************************************************************************
+ * MACROS FOR PARAMETERS                                           *
+ ****************************************************************************/
+#define REHASH_THRESHOLD 0.5
+
+/****************************************************************************
  * MACROS FOR FILE I/O RULES                                       *
  ****************************************************************************/
 #define MAX_SIZE	1000
@@ -16,7 +28,7 @@
 #define MAX_VALUE	10000
 
 /****************************************************************************
- * MACROS TO SHOW THE STATE OF CELL                               *
+ * MACROS TO SHOW THE STATE OF CELLS                               *
  ****************************************************************************/
 #ifndef EMPTY
 #define EMPTY 10001
@@ -28,21 +40,6 @@
 
 #ifndef DELETED
 #define DELETED 10003
-#endif
-
-/****************************************************************************
- * MACROS TO SHOW THE TYPE OF PRINTING                            *
- ****************************************************************************/
-#ifndef REMOVE_NOTFOUND
-#define REMOVE_NOTFOUND 2
-#endif
-
-#ifndef REMOVE_REPLACED
-#define REMOVE_REPLACED 1
-#endif
-
-#ifndef REMOVE_DELETED
-#define REMOVE_DELETED 0 //default set printing trigger..
 #endif
 
 /****************************************************************************
@@ -64,24 +61,34 @@
 #define FAILURE 0
 #endif
 
+/****************************************************************************
+ * MACROS FOR THE RULES OF INITIAL VALUES                          *
+ ****************************************************************************/
 #ifndef INIT_PRIME
 #define INIT_PRIME 101
 #endif
 
 #ifndef INIT_R
-#define INIT_R 7
+#define INIT_R 13
 #endif
 
 /****************************************************************************
  * THE FUNTIONAL DECLARATIONS OF HASH TABLE(WITH OPEN ADDRESSING)  *
  ****************************************************************************/
 #include "Prime.h"
+typedef int probType;
 
+/****************************************************************************
+ * THE STRUCTURE OF CELLS                                          *
+ ****************************************************************************/
 struct HashEntry {
 	int key;
 	int state;
 }; typedef struct HashEntry HashEntry;
 
+/****************************************************************************
+ * HASH TABLE WITH OPEN ADDRESSING                                 *
+ ****************************************************************************/
 class HashTable {
 private :
 	HashEntry** cells; //size of cells = tableSize * size of pointer.
@@ -89,8 +96,9 @@ private :
 	int numCells;
 	int R; //the prime number smaller than tableSize to use double hashing
 	PrimeTable* prime;
+	probType Type;
 public :
-	HashTable(int, int);
+	HashTable(int, int, probType);
 	~HashTable();
 
 	int hash(int);
@@ -103,6 +111,9 @@ public :
 	void remove(int, FILE*);
 
 	void traverse(FILE*);
+
+	void reset();
+	void setType(probType);
 };
 
 #endif /* SRC_HASHTABLEOPENADDRESSING_H_ */

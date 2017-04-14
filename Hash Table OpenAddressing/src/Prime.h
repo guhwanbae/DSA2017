@@ -8,6 +8,10 @@
 #ifndef SRC_PRIME_H_
 #define SRC_PRIME_H_
 
+#ifndef MAX_NATURAL_NUMBER
+#define MAX_NATURAL_NUMBER 10000
+#endif
+
 class PrimeTable {
 private :
 	int* primeTable;

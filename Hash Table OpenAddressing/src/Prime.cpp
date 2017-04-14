@@ -9,6 +9,9 @@
 #include "Prime.h"
 using namespace std;
 
+/****************************************************************************
+ * THE FUNTIONAL IMPLEMENTAIONS TO FIND PRIME TALBE                *
+ ****************************************************************************/
 PrimeTable::PrimeTable(int newSize) {
 	curPrimeIndex = 0;
 	maxSize = newSize;
@@ -37,21 +40,25 @@ int PrimeTable::findPrimeNumber(int keyVal) {
 
 void PrimeTable::Eratosthenes() {
 	int i,j;
-	int naturalTable[maxSize];
+	int naturalTable[MAX_NATURAL_NUMBER];
 	for(i=0;i<maxSize;++i)
-		naturalTable[i] = (i+2);
+		naturalTable[i] = i;
+	//cout << "Get Prime Table" << endl;
 	for(i=2; i<=sqrt(maxSize); ++i) {
-		if(naturalTable[i] == 0)
+		if(naturalTable[i] == 0) {
 			continue;
-		for (j=2*i; j<=maxSize; j= +j) {
+		}
+		for (j=2*i; j<=maxSize; j= i+j) {
 			naturalTable[j] = 0;
 		}
 	}
+	cout << "Success : Get Prime Table.." << endl;
 	for(i=0,j=0;i<maxSize;++i) {
-		if(naturalTable[i] != 0) {
+		if(naturalTable[i] != 0 && naturalTable[i] != 1) {
 			primeTable[j++] = naturalTable[i];
 		}
 	}
+
 }
 
 int PrimeTable::getPrime(int index) {

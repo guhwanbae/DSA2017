@@ -9,15 +9,16 @@
 #include "HashTableOpenAddressing.h"
 
 using namespace std;
-int REHASH_THRESHOLD = INIT_PRIME/2;
 
+int numProbing = 0;
 /****************************************************************************
  * THE FUNTIONAL IMPLEMENTAIONS OF HASH TABLE(WITH OPEN ADDRESSING)*
  ****************************************************************************/
-HashTable::HashTable(int newSize, int newR) {
+HashTable::HashTable(int newSize, int newR, probType Type) {
 	tableSize = newSize;
 	numCells = 0;
 	R = newR;
+	this->Type = Type;
 	prime = new PrimeTable(MAX_SIZE);
 
 	cells = new HashEntry* [tableSize];
@@ -44,7 +45,13 @@ int HashTable::hash(int keyVal) {
 }
 
 int HashTable::hash2(int keyVal, int i) {
-	return (R - (keyVal%R));
+	if(i != 0) ++numProbing;
+	if(Type == TYPE_PROBING_LINEAR)
+		return 1;
+	else if(Type == TYPE_PROBING_QUADRATURE)
+		return i;
+	else if(Type == TYPE_DOUBLE_HASHING)
+		return (R - (keyVal%R));
 }
 
 void HashTable::rehash(FILE* fp) {
@@ -53,7 +60,7 @@ void HashTable::rehash(FILE* fp) {
 
 	tableSize = prime->findPrimeNumber(2*tableSize);
 
-	fprintf(fp, " - NUM_ELE(%d), TABLE_SIZE(%d) - REHASH(%d)\n", numCells, oldTableSize, tableSize);
+	fprintf(fp, " - NUM_ELE(%d), TABLE_SIZE(%d) - REHASH(%d)", numCells, oldTableSize, tableSize);
 
 	cells = new HashEntry* [tableSize];
 	int index;
@@ -81,7 +88,6 @@ HashEntry* HashTable::find(int keyVal, FILE* fp) {
 
 		if(cells[index]->state == EMPTY) {
 			fprintf(fp, "Key Not Found\n");
-			cout << "Key Not Found" << endl;
 			return NULL;
 		}
 		else if(cells[index]->key == keyVal && cells[index]->state == ACTIVE) {
@@ -99,20 +105,21 @@ void HashTable::insert(int keyVal, FILE* fp) {
 		index = hash(keyVal + i*hash2(keyVal,i));
 
 		if(cells[index]->state != ACTIVE) {
-			fprintf(fp, "SUCCESS\n");
+			fprintf(fp, "SUCCESS");
 			cells[index]->key = keyVal;
 			cells[index]->state = ACTIVE;
 			++numCells;
 			break;
 		}
 		else if(cells[index]->key == keyVal && cells[index]->state == ACTIVE) {
-			cout << "Duplicated Key" << endl;
+			//cout << "Duplicated Key" << endl;
 			return;
 		}
 	}
 
-	if(numCells/tableSize >= REHASH_THRESHOLD)
+	if((double)numCells/(double)tableSize >= REHASH_THRESHOLD)
 		rehash(fp);
+	fprintf(fp, "\n");
 }
 
 void HashTable::insert(int keyVal) {
@@ -137,7 +144,6 @@ void HashTable::remove(int keyVal, FILE* fp) {
 
 		if(cells[index]->state == EMPTY) {
 			fprintf(fp, "Key Not Found\n");
-			cout << "Key Not Found" << endl;
 			return;
 		}
 		else if(cells[index]->key == keyVal && cells[index]->state == ACTIVE) {
@@ -150,11 +156,10 @@ void HashTable::remove(int keyVal, FILE* fp) {
 }
 
 void HashTable::traverse(FILE* fp) {
-	int numProbing=0;
 	fprintf(fp, "TRAVERSE - NUM_ELE(%d), TABLE_SIZE(%d)\n", numCells, tableSize);
 	fprintf(fp, "TOTAL NUMBER OF PROBING: %d\n", numProbing);
 	for(int index=0; index<tableSize; ++index) {
-		fprintf(fp, "[Index (%d)] ", index);
+		fprintf(fp, "[Index(%d)] ", index);
 		if(cells[index]->state == EMPTY)
 			fprintf(fp, "EMPTY\n");
 		else if(cells[index]->state == DELETED)
@@ -163,4 +168,19 @@ void HashTable::traverse(FILE* fp) {
 			fprintf(fp, "ACTIVE(%d)\n", cells[index]->key);
 		}
 	}
+}
+
+void HashTable::setType(probType Type) {
+	this->Type = Type;
+}
+
+void HashTable::reset() {
+	numCells = 0;
+	for(int index=0; index<tableSize; ++index) {
+			cells[index]->state = EMPTY;
+			cells[index]->key = 0;
+	}
+	tableSize = INIT_PRIME;
+	prime->resetCurPrimeIndex();
+	numProbing = 0;
 }

@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 	char		*token;
 	int			keyVal;
 
-	HashTable	*separateChaining = new HashTable(INIT_PRIME,INIT_R);
+	HashTable	*openAddressing = new HashTable(INIT_PRIME,INIT_R);
 
 	if((ifp = fopen("input_Hash.txt", "r")) == NULL)
 	{

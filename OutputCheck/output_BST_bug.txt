@@ -1,0 +1,874 @@
+REMOVE(5698): Node Not Found
+INSERT(8100): Node Inserted
+REMOVE(8100): Node Deleted
+INSERT(526): Node Inserted
+CONTAINS(526): Node Found
+REMOVE(526): Node Deleted
+INSERT(7104): Node Inserted
+INSERT(3254): Node Inserted
+REMOVE(3254): Node Deleted
+INSERT(3630): Node Inserted
+INSERT(9905): Node Inserted
+INSERT(1771): Node Inserted
+INSERT(8959): Node Inserted
+INSERT(5384): Node Inserted
+INSERT(111): Node Inserted
+INSERT(9109): Node Inserted
+REMOVE(9109): Node Deleted
+REMOVE(7104): Node Replaced with Key(8959)
+INSERT(2565): Node Inserted
+REMOVE(3630): Node Replaced with Key(2565)
+REMOVE(111): Node Deleted
+CONTAINS(9905): Node Found
+CONTAINS(2565): Node Found
+INSERT(8758): Node Inserted
+INSERT(7964): Node Inserted
+INSERT(7414): Node Inserted
+INSERT(6419): Node Inserted
+REMOVE(6419): Node Deleted
+REMOVE(2565): Node Replaced with Key(5384)
+REMOVE(8959): Node Replaced with Key(8758)
+INSERT(2722): Node Inserted
+INSERT(1479): Node Inserted
+INSERT(6001): Node Inserted
+INSERT(8192): Node Inserted
+REMOVE(1771): Node Replaced with Key(2722)
+INSERT(5708): Node Inserted
+CONTAINS(8758): Node Found
+REMOVE(8192): Node Deleted
+INSERT(8366): Node Inserted
+INSERT(4119): Node Inserted
+INSERT(175): Node Inserted
+CONTAINS(6001): Node Found
+CONTAINS(9905): Node Found
+INSERT(6981): Node Inserted
+INSERT(5461): Node Inserted
+INSERT(7065): Node Inserted
+INSERT(7961): Node Inserted
+REMOVE(5384): Node Replaced with Key(4119)
+CONTAINS(8758): Node Found
+INSERT(4039): Node Inserted
+INSERT(3867): Node Inserted
+INSERT(7648): Node Inserted
+REMOVE(7964): Node Replaced with Key(7961)
+INSERT(3543): Node Inserted
+INSERT(7054): Node Inserted
+CONTAINS(5708): Node Found
+CONTAINS(6001): Node Found
+INSERT(4658): Node Inserted
+INSERT(529): Node Inserted
+INSERT(3029): Node Inserted
+REMOVE(4658): Node Deleted
+CONTAINS(6981): Node Found
+INSERT(8544): Node Inserted
+REMOVE(6001): Node Replaced with Key(6981)
+INSERT(1917): Node Inserted
+REMOVE(1917): Node Deleted
+INSERT(6020): Node Inserted
+INSERT(5171): Node Inserted
+INSERT(9679): Node Inserted
+INSERT(4662): Node Inserted
+CONTAINS(3867): Node Found
+INSERT(8800): Node Inserted
+REMOVE(3543): Node Deleted
+INSERT(3236): Node Inserted
+INSERT(5283): Node Inserted
+CONTAINS(5708): Node Found
+INSERT(1498): Node Inserted
+CONTAINS(5708): Node Found
+INSERT(2978): Node Inserted
+INSERT(4408): Node Inserted
+CONTAINS(8758): Node Found
+INSERT(9671): Node Inserted
+CONTAINS(9679): Node Found
+REMOVE(2722): Node Replaced with Key(1498)
+CONTAINS(7065): Node Found
+REMOVE(8366): Node Deleted
+CONTAINS(7961): Node Found
+INSERT(9943): Node Inserted
+INSERT(9153): Node Inserted
+CONTAINS(7961): Node Found
+INSERT(359): Node Inserted
+INSERT(1923): Node Inserted
+INSERT(8698): Node Inserted
+CONTAINS(8800): Node Found
+REMOVE(6981): Node Replaced with Key(6020)
+INSERT(4575): Node Inserted
+INSERT(3056): Node Inserted
+REMOVE(9943): Node Deleted
+INSERT(4533): Node Inserted
+CONTAINS(1923): Node Found
+INSERT(1304): Node Inserted
+CONTAINS(175): Node Found
+REMOVE(7961): Node Replaced with Key(8544)
+CONTAINS(4662): Node Found
+INSERT(9537): Node Inserted
+CONTAINS(5708): Node Found
+CONTAINS(5461): Node Found
+INSERT(1720): Node Inserted
+REMOVE(4119): Node Replaced with Key(4039)
+REMOVE(7414): Node Replaced with Key(7065)
+INSERT(64): Node Inserted
+REMOVE(8758): Node Replaced with Key(8800)
+INSERT(9300): Node Inserted
+INSERT(1297): Node Inserted
+INSERT(5403): Node Inserted
+REMOVE(7054): Node Deleted
+CONTAINS(64): Node Found
+CONTAINS(64): Node Found
+REMOVE(8544): Node Replaced with Key(8698)
+CONTAINS(4039): Node Found
+REMOVE(9679): Node Deleted
+INSERT(6620): Node Inserted
+INSERT(6118): Node Inserted
+CONTAINS(5171): Node Found
+REMOVE(4408): Node Deleted
+INSERT(9530): Node Inserted
+REMOVE(6020): Node Replaced with Key(6118)
+INSERT(4248): Node Inserted
+CONTAINS(9905): Node Found
+INSERT(7760): Node Inserted
+REMOVE(5283): Node Deleted
+CONTAINS(5171): Node Found
+INSERT(3184): Node Inserted
+INSERT(4555): Node Inserted
+CONTAINS(9671): Node Found
+INSERT(7874): Node Inserted
+CONTAINS(1479): Node Found
+INSERT(1750): Node Inserted
+INSERT(8650): Node Inserted
+INSERT(1970): Node Inserted
+INSERT(7063): Node Inserted
+REMOVE(4533): Node Replaced with Key(4555)
+REMOVE(6118): Node Replaced with Key(5708)
+INSERT(8146): Node Inserted
+REMOVE(1498): Node Replaced with Key(1720)
+INSERT(3701): Node Inserted
+INSERT(9138): Node Inserted
+CONTAINS(1970): Node Found
+INSERT(2616): Node Inserted
+INSERT(8267): Node Inserted
+CONTAINS(9153): Node Found
+REMOVE(2978): Node Deleted
+INSERT(4217): Node Inserted
+CONTAINS(1923): Node Found
+INSERT(8441): Node Inserted
+INSERT(4432): Node Inserted
+INSERT(9643): Node Inserted
+INSERT(5208): Node Inserted
+INSERT(1939): Node Inserted
+INSERT(6806): Node Inserted
+INSERT(7054): Node Inserted
+REMOVE(1720): Node Replaced with Key(1479)
+REMOVE(9905): Node Deleted
+REMOVE(9671): Node Deleted
+CONTAINS(6806): Node Found
+INSERT(258): Node Inserted
+REMOVE(4662): Node Deleted
+INSERT(3193): Node Inserted
+INSERT(4461): Node Inserted
+INSERT(6181): Node Inserted
+INSERT(5853): Node Inserted
+INSERT(8246): Node Inserted
+INSERT(4742): Node Inserted
+INSERT(2037): Node Inserted
+INSERT(9988): Node Inserted
+REMOVE(8698): Node Deleted
+CONTAINS(1750): Node Found
+REMOVE(64): Node Deleted
+INSERT(8586): Node Inserted
+INSERT(5819): Node Inserted
+INSERT(9490): Node Inserted
+REMOVE(5171): Node Replaced with Key(4742)
+INSERT(4967): Node Inserted
+INSERT(1617): Node Inserted
+REMOVE(1297): Node Deleted
+INSERT(9363): Node Inserted
+INSERT(5074): Node Inserted
+INSERT(8601): Node Inserted
+CONTAINS(7063): Node Found
+CONTAINS(9530): Node Found
+CONTAINS(9300): Node Found
+INSERT(899): Node Inserted
+CONTAINS(9988): Node Found
+INSERT(9643): Duplicated Node
+INSERT(4786): Node Inserted
+CONTAINS(5819): Node Found
+REMOVE(529): Node Replaced with Key(899)
+CONTAINS(6181): Node Found
+INSERT(5682): Node Inserted
+CONTAINS(9300): Node Found
+REMOVE(4432): Node Deleted
+INSERT(6222): Node Inserted
+INSERT(8543): Node Inserted
+CONTAINS(8586): Node Found
+INSERT(5409): Node Inserted
+INSERT(1193): Node Inserted
+INSERT(3086): Node Inserted
+REMOVE(7054): Node Deleted
+REMOVE(8146): Node Deleted
+REMOVE(899): Node Replaced with Key(359)
+CONTAINS(5403): Node Found
+INSERT(9423): Node Inserted
+REMOVE(1939): Node Deleted
+CONTAINS(4742): Node Found
+CONTAINS(8267): Node Found
+INSERT(8763): Node Inserted
+REMOVE(7648): Node Deleted
+INSERT(7932): Node Inserted
+INSERT(6410): Node Inserted
+INSERT(762): Node Inserted
+INSERT(9089): Node Inserted
+INSERT(2184): Node Inserted
+INSERT(764): Node Inserted
+REMOVE(5409): Node Deleted
+CONTAINS(5208): Node Found
+INSERT(9369): Node Inserted
+CONTAINS(762): Node Found
+REMOVE(4248): Node Replaced with Key(4217)
+INSERT(9029): Node Inserted
+CONTAINS(9988): Node Found
+INSERT(7473): Node Inserted
+INSERT(5545): Node Inserted
+INSERT(5244): Node Inserted
+REMOVE(9490): Node Deleted
+INSERT(1438): Node Inserted
+REMOVE(3193): Node Deleted
+REMOVE(6181): Node Replaced with Key(6222)
+CONTAINS(8601): Node Found
+INSERT(1062): Node Inserted
+REMOVE(7760): Node Replaced with Key(7473)
+CONTAINS(2616): Node Found
+INSERT(9767): Node Inserted
+INSERT(2750): Node Inserted
+REMOVE(9300): Node Deleted
+REMOVE(1479): Node Replaced with Key(1617)
+REMOVE(4967): Node Replaced with Key(5074)
+CONTAINS(5682): Node Found
+INSERT(6165): Node Inserted
+CONTAINS(8601): Node Found
+INSERT(9550): Node Inserted
+INSERT(66): Node Inserted
+INSERT(2393): Node Inserted
+INSERT(6771): Node Inserted
+INSERT(3458): Node Inserted
+INSERT(4312): Node Inserted
+CONTAINS(1617): Node Found
+INSERT(6713): Node Inserted
+REMOVE(8543): Node Deleted
+REMOVE(6620): Node Replaced with Key(6410)
+CONTAINS(6165): Node Found
+INSERT(5000): Node Inserted
+INSERT(4427): Node Inserted
+INSERT(922): Node Inserted
+REMOVE(9423): Node Deleted
+INSERT(9420): Node Inserted
+INSERT(609): Node Inserted
+INSERT(5719): Node Inserted
+CONTAINS(5708): Node Found
+INSERT(6962): Node Inserted
+CONTAINS(1304): Node Found
+INSERT(7387): Node Inserted
+INSERT(8875): Node Inserted
+INSERT(6647): Node Inserted
+INSERT(2298): Node Inserted
+INSERT(3063): Node Inserted
+INSERT(8094): Node Inserted
+INSERT(5383): Node Inserted
+REMOVE(3458): Node Deleted
+INSERT(8459): Node Inserted
+CONTAINS(5853): Node Found
+REMOVE(3236): Node Replaced with Key(3701)
+REMOVE(9138): Node Deleted
+REMOVE(8763): Node Deleted
+INSERT(8516): Node Inserted
+REMOVE(6962): Node Deleted
+REMOVE(10000): Node Not Found
+CONTAINS(3867): Node Found
+REMOVE(9550): Node Deleted
+REMOVE(7473): Node Replaced with Key(7387)
+INSERT(8283): Node Inserted
+REMOVE(1304): Node Replaced with Key(1438)
+INSERT(1832): Node Inserted
+INSERT(4204): Node Inserted
+REMOVE(8586): Node Replaced with Key(8601)
+CONTAINS(5853): Node Found
+REMOVE(175): Node Replaced with Key(66)
+REMOVE(5383): Node Deleted
+CONTAINS(8875): Node Found
+INSERT(2448): Node Inserted
+CONTAINS(4427): Node Found
+CONTAINS(4461): Node Found
+CONTAINS(9767): Node Found
+CONTAINS(2393): Node Found
+CONTAINS(9988): Node Found
+INSERT(6319): Node Inserted
+REMOVE(7874): Node Deleted
+INSERT(2503): Node Inserted
+CONTAINS(4555): Node Found
+CONTAINS(8875): Node Found
+CONTAINS(4427): Node Found
+CONTAINS(3867): Node Found
+REMOVE(5708): Node Replaced with Key(5682)
+INSERT(9023): Node Inserted
+INSERT(7358): Node Inserted
+REMOVE(922): Node Deleted
+INSERT(2910): Node Inserted
+INSERT(1089): Node Inserted
+INSERT(5923): Node Inserted
+CONTAINS(7063): Node Found
+REMOVE(2037): Node Deleted
+REMOVE(5074): Node Deleted
+CONTAINS(4742): Node Found
+CONTAINS(2298): Node Found
+INSERT(2456): Node Inserted
+CONTAINS(2910): Node Found
+REMOVE(4312): Node Deleted
+REMOVE(258): Node Deleted
+CONTAINS(5545): Node Found
+INSERT(6595): Node Inserted
+INSERT(6391): Node Inserted
+INSERT(4757): Node Inserted
+CONTAINS(2456): Node Found
+INSERT(2145): Node Inserted
+INSERT(3558): Node Inserted
+INSERT(275): Node Inserted
+INSERT(2938): Node Inserted
+REMOVE(6647): Node Deleted
+INSERT(4827): Node Inserted
+INSERT(7527): Node Inserted
+REMOVE(275): Node Deleted
+CONTAINS(2616): Node Found
+CONTAINS(9537): Node Found
+REMOVE(4461): Node Deleted
+REMOVE(1089): Node Deleted
+INSERT(9113): Node Inserted
+REMOVE(8267): Node Replaced with Key(8246)
+INSERT(5615): Node Inserted
+REMOVE(8283): Node Deleted
+INSERT(1984): Node Inserted
+REMOVE(9029): Node Deleted
+CONTAINS(1617): Node Found
+REMOVE(1193): Node Deleted
+REMOVE(5615): Node Deleted
+INSERT(3599): Node Inserted
+INSERT(5064): Node Inserted
+REMOVE(1832): Node Deleted
+REMOVE(4555): Node Deleted
+REMOVE(5819): Node Deleted
+INSERT(6669): Node Inserted
+INSERT(2972): Node Inserted
+INSERT(2459): Node Inserted
+INSERT(1224): Node Inserted
+REMOVE(5064): Node Deleted
+INSERT(3244): Node Inserted
+INSERT(3633): Node Inserted
+REMOVE(8650): Node Deleted
+INSERT(8599): Node Inserted
+INSERT(9488): Node Inserted
+CONTAINS(9089): Node Found
+REMOVE(9643): Node Deleted
+REMOVE(5244): Node Deleted
+CONTAINS(4757): Node Found
+REMOVE(66): Node Deleted
+INSERT(7898): Node Inserted
+INSERT(1364): Node Inserted
+CONTAINS(3701): Node Found
+CONTAINS(2503): Node Found
+CONTAINS(2616): Node Found
+INSERT(9841): Node Inserted
+CONTAINS(8875): Node Found
+INSERT(6281): Node Inserted
+INSERT(3753): Node Inserted
+REMOVE(9089): Node Replaced with Key(9113)
+INSERT(449): Node Inserted
+INSERT(3361): Node Inserted
+REMOVE(6713): Node Deleted
+CONTAINS(5719): Node Found
+CONTAINS(2145): Node Found
+INSERT(9956): Node Inserted
+CONTAINS(3633): Node Found
+CONTAINS(8094): Node Found
+INSERT(8620): Node Inserted
+REMOVE(9988): Node Deleted
+INSERT(6094): Node Inserted
+CONTAINS(4827): Node Found
+CONTAINS(3701): Node Found
+INSERT(6955): Node Inserted
+INSERT(8414): Node Inserted
+INSERT(1721): Node Inserted
+REMOVE(8246): Node Replaced with Key(8414)
+INSERT(8927): Node Inserted
+INSERT(811): Node Inserted
+INSERT(7298): Node Inserted
+REMOVE(8601): Node Replaced with Key(8599)
+INSERT(9041): Node Inserted
+CONTAINS(2459): Node Found
+INSERT(756): Node Inserted
+CONTAINS(4757): Node Found
+CONTAINS(6094): Node Found
+INSERT(8484): Node Inserted
+REMOVE(2393): Node Replaced with Key(2298)
+INSERT(4244): Node Inserted
+INSERT(7961): Node Inserted
+REMOVE(4786): Node Replaced with Key(4757)
+REMOVE(1438): Node Deleted
+CONTAINS(762): Node Found
+INSERT(353): Node Inserted
+CONTAINS(5682): Node Found
+CONTAINS(3056): Node Found
+CONTAINS(9363): Node Found
+REMOVE(5682): Node Replaced with Key(5719)
+INSERT(4448): Node Inserted
+INSERT(4398): Node Inserted
+INSERT(8713): Node Inserted
+INSERT(1077): Node Inserted
+INSERT(824): Node Inserted
+CONTAINS(353): Node Found
+REMOVE(764): Node Deleted
+CONTAINS(9537): Node Found
+INSERT(2501): Node Inserted
+CONTAINS(3701): Node Found
+CONTAINS(4244): Node Found
+INSERT(8873): Node Inserted
+REMOVE(4217): Node Replaced with Key(4204)
+CONTAINS(8800): Node Found
+CONTAINS(6595): Node Found
+CONTAINS(9041): Node Found
+CONTAINS(9113): Node Found
+INSERT(7562): Node Inserted
+INSERT(8189): Node Inserted
+CONTAINS(7961): Node Found
+REMOVE(8189): Node Deleted
+CONTAINS(5461): Node Found
+CONTAINS(2972): Node Found
+INSERT(9748): Node Inserted
+REMOVE(8800): Node Replaced with Key(8713)
+INSERT(484): Node Inserted
+REMOVE(1750): Node Deleted
+INSERT(8341): Node Inserted
+CONTAINS(7562): Node Found
+INSERT(5594): Node Inserted
+REMOVE(2459): Node Deleted
+INSERT(3336): Node Inserted
+INSERT(943): Node Inserted
+CONTAINS(811): Node Found
+INSERT(3984): Node Inserted
+INSERT(6076): Node Inserted
+CONTAINS(1364): Node Found
+INSERT(8174): Node Inserted
+REMOVE(6410): Node Replaced with Key(6391)
+REMOVE(8927): Node Deleted
+CONTAINS(3984): Node Found
+REMOVE(6319): Node Deleted
+INSERT(9588): Node Inserted
+INSERT(5076): Node Inserted
+REMOVE(3701): Node Replaced with Key(3753)
+REMOVE(9767): Node Replaced with Key(9841)
+CONTAINS(4398): Node Found
+INSERT(5614): Node Inserted
+INSERT(9881): Node Inserted
+INSERT(6516): Node Inserted
+CONTAINS(9488): Node Found
+REMOVE(2298): Node Deleted
+CONTAINS(8713): Node Found
+REMOVE(811): Node Deleted
+CONTAINS(1923): Node Found
+REMOVE(3361): Node Deleted
+INSERT(9759): Node Inserted
+INSERT(4147): Node Inserted
+INSERT(8111): Node Inserted
+CONTAINS(1970): Node Found
+INSERT(348): Node Inserted
+REMOVE(9530): Node Deleted
+INSERT(9397): Node Inserted
+INSERT(8018): Node Inserted
+INSERT(3683): Node Inserted
+INSERT(6230): Node Inserted
+INSERT(1853): Node Inserted
+CONTAINS(2616): Node Found
+CONTAINS(1364): Node Found
+CONTAINS(2145): Node Found
+REMOVE(2938): Node Deleted
+CONTAINS(5594): Node Found
+INSERT(1331): Node Inserted
+CONTAINS(353): Node Found
+INSERT(4304): Node Inserted
+REMOVE(943): Node Deleted
+REMOVE(2501): Node Deleted
+INSERT(2046): Node Inserted
+INSERT(4915): Node Inserted
+
+Pre-order Traversal:
+8713
+..4039
+....1617
+......359
+........353
+..........348
+........762
+..........609
+............449
+..............484
+............756
+..........1062
+............824
+............1224
+..............1077
+..............1364
+................1331
+......3867
+........3029
+..........1923
+............1721
+..............1853
+............1970
+..............2616
+................2184
+..................2145
+....................1984
+......................2046
+..................2448
+....................2503
+......................2456
+................2750
+..................2910
+....................2972
+..........3753
+............3056
+..............3184
+................3086
+..................3063
+................3558
+..................3244
+....................3336
+..................3599
+....................3633
+......................3683
+........3984
+....7065
+......5719
+........5461
+..........4742
+............4575
+..............4204
+................4147
+................4427
+..................4244
+....................4398
+......................4304
+..................4448
+............5403
+..............5208
+................4757
+..................5000
+....................4827
+......................4915
+....................5076
+..........5545
+............5594
+..............5614
+........6391
+..........6222
+............5853
+..............6165
+................5923
+..................6094
+....................6076
+............6281
+..............6230
+..........7063
+............6806
+..............6771
+................6595
+..................6516
+..................6669
+..............6955
+......7387
+........7358
+..........7298
+........8414
+..........7932
+............7527
+..............7898
+................7562
+............8094
+..............7961
+................8018
+..............8341
+................8174
+..................8111
+..........8441
+............8599
+..............8459
+................8516
+..................8484
+..............8620
+..9153
+....9113
+......8875
+........8873
+........9023
+..........9041
+....9537
+......9363
+........9369
+..........9420
+............9397
+............9488
+......9841
+........9748
+..........9588
+..........9759
+........9956
+..........9881
+
+In-order Traversal:
+..........348
+........353
+......359
+............449
+..............484
+..........609
+............756
+........762
+............824
+..........1062
+..............1077
+............1224
+................1331
+..............1364
+....1617
+............1721
+..............1853
+..........1923
+............1970
+....................1984
+......................2046
+..................2145
+................2184
+..................2448
+......................2456
+....................2503
+..............2616
+................2750
+..................2910
+....................2972
+........3029
+............3056
+..................3063
+................3086
+..............3184
+..................3244
+....................3336
+................3558
+..................3599
+....................3633
+......................3683
+..........3753
+......3867
+........3984
+..4039
+................4147
+..............4204
+..................4244
+......................4304
+....................4398
+................4427
+..................4448
+............4575
+..........4742
+................4757
+....................4827
+......................4915
+..................5000
+....................5076
+..............5208
+............5403
+........5461
+..........5545
+............5594
+..............5614
+......5719
+............5853
+................5923
+....................6076
+..................6094
+..............6165
+..........6222
+..............6230
+............6281
+........6391
+..................6516
+................6595
+..................6669
+..............6771
+............6806
+..............6955
+..........7063
+....7065
+..........7298
+........7358
+......7387
+............7527
+................7562
+..............7898
+..........7932
+..............7961
+................8018
+............8094
+..................8111
+................8174
+..............8341
+........8414
+..........8441
+..............8459
+..................8484
+................8516
+............8599
+..............8620
+8713
+........8873
+......8875
+........9023
+..........9041
+....9113
+..9153
+......9363
+........9369
+............9397
+..........9420
+............9488
+....9537
+..........9588
+........9748
+..........9759
+......9841
+..........9881
+........9956
+
+Post-order Traversal:
+..........348
+........353
+..............484
+............449
+............756
+..........609
+............824
+..............1077
+................1331
+..............1364
+............1224
+..........1062
+........762
+......359
+..............1853
+............1721
+......................2046
+....................1984
+..................2145
+......................2456
+....................2503
+..................2448
+................2184
+....................2972
+..................2910
+................2750
+..............2616
+............1970
+..........1923
+..................3063
+................3086
+....................3336
+..................3244
+......................3683
+....................3633
+..................3599
+................3558
+..............3184
+............3056
+..........3753
+........3029
+........3984
+......3867
+....1617
+................4147
+......................4304
+....................4398
+..................4244
+..................4448
+................4427
+..............4204
+............4575
+......................4915
+....................4827
+....................5076
+..................5000
+................4757
+..............5208
+............5403
+..........4742
+..............5614
+............5594
+..........5545
+........5461
+....................6076
+..................6094
+................5923
+..............6165
+............5853
+..............6230
+............6281
+..........6222
+..................6516
+..................6669
+................6595
+..............6771
+..............6955
+............6806
+..........7063
+........6391
+......5719
+..........7298
+........7358
+................7562
+..............7898
+............7527
+................8018
+..............7961
+..................8111
+................8174
+..............8341
+............8094
+..........7932
+..................8484
+................8516
+..............8459
+..............8620
+............8599
+..........8441
+........8414
+......7387
+....7065
+..4039
+........8873
+..........9041
+........9023
+......8875
+....9113
+............9397
+............9488
+..........9420
+........9369
+......9363
+..........9588
+..........9759
+........9748
+..........9881
+........9956
+......9841
+....9537
+..9153
+8713
+MAKE_EMPTY: 
+In-order Traversal:

@@ -1,0 +1,910 @@
+CONTAINS(72): Node Not Found
+CONTAINS(3933): Node Not Found
+INSERT(3821): Success
+CONTAINS(3821): Success
+CONTAINS(3821): Success
+INSERT(8830): Success
+INSERT(6735): Success
+INSERT(8971): Success
+INSERT(9275): Success
+REMOVE(8830): Success
+INSERT(3779): Success
+REMOVE(3821): Success
+INSERT(2988): Success
+INSERT(9379): Success
+INSERT(3059): Success
+INSERT(8127): Success
+INSERT(6581): Success
+INSERT(8699): Success
+INSERT(2950): Success
+INSERT(4397): Success
+INSERT(7909): Success
+INSERT(1649): Success
+INSERT(3276): Success
+INSERT(5804): Success
+INSERT(9607): Success
+INSERT(6795): Success
+CONTAINS(6581): Success
+INSERT(447): Success
+CONTAINS(9607): Success
+CONTAINS(8971): Success
+INSERT(1982): Success
+CONTAINS(3059): Success
+INSERT(2447): Success
+INSERT(4060): Success
+INSERT(9904): Success
+CONTAINS(6581): Success
+CONTAINS(2447): Success
+REMOVE(6581): Success
+INSERT(5907): Success
+REMOVE(5804): Success
+REMOVE(9275): Success
+REMOVE(447): Success
+INSERT(6286): Success
+REMOVE(8127): Success
+INSERT(9997): Success
+INSERT(7548): Success
+INSERT(9949): Success
+CONTAINS(3059): Success
+REMOVE(9949): Success
+CONTAINS(5907): Success
+REMOVE(1649): Success
+CONTAINS(3779): Success
+CONTAINS(4060): Success
+REMOVE(9904): Success
+CONTAINS(6735): Success
+INSERT(3866): Success
+CONTAINS(2950): Success
+REMOVE(8699): Success
+INSERT(3556): Success
+INSERT(1614): Success
+INSERT(1591): Success
+INSERT(4617): Success
+REMOVE(4397): Success
+REMOVE(4060): Success
+CONTAINS(3276): Success
+INSERT(9753): Success
+REMOVE(8971): Success
+INSERT(8414): Success
+INSERT(6696): Success
+INSERT(6210): Success
+INSERT(4604): Success
+INSERT(1085): Success
+INSERT(137): Success
+CONTAINS(2950): Success
+CONTAINS(9753): Success
+CONTAINS(6210): Success
+INSERT(5286): Success
+CONTAINS(4604): Success
+INSERT(6930): Success
+REMOVE(6696): Success
+INSERT(5962): Success
+REMOVE(2950): Success
+INSERT(1068): Success
+CONTAINS(1982): Success
+CONTAINS(1982): Success
+CONTAINS(6795): Success
+REMOVE(5962): Success
+CONTAINS(3779): Success
+REMOVE(6210): Success
+CONTAINS(2447): Success
+CONTAINS(2447): Success
+CONTAINS(1085): Success
+REMOVE(2988): Success
+CONTAINS(2447): Success
+INSERT(9613): Success
+INSERT(2494): Success
+REMOVE(1068): Success
+INSERT(6888): Success
+REMOVE(137): Success
+REMOVE(1982): Success
+INSERT(3244): Success
+REMOVE(9753): Success
+CONTAINS(9379): Success
+REMOVE(7548): Success
+REMOVE(1085): Success
+INSERT(4261): Success
+CONTAINS(1591): Success
+CONTAINS(3059): Success
+INSERT(2797): Success
+CONTAINS(5286): Success
+REMOVE(2447): Success
+REMOVE(2797): Success
+CONTAINS(9997): Success
+INSERT(1202): Success
+CONTAINS(3059): Success
+REMOVE(1614): Success
+CONTAINS(1591): Success
+INSERT(9853): Success
+CONTAINS(3779): Success
+CONTAINS(4604): Success
+INSERT(8884): Success
+INSERT(2737): Success
+INSERT(4643): Success
+REMOVE(1591): Success
+INSERT(7239): Success
+INSERT(5860): Success
+REMOVE(4261): Success
+INSERT(6189): Success
+INSERT(2246): Success
+INSERT(490): Success
+REMOVE(6930): Success
+INSERT(9947): Success
+REMOVE(1202): Success
+CONTAINS(3866): Success
+CONTAINS(2737): Success
+INSERT(5447): Success
+REMOVE(5907): Success
+INSERT(4581): Success
+INSERT(50): Success
+INSERT(2593): Success
+INSERT(2092): Success
+INSERT(7578): Success
+INSERT(664): Success
+REMOVE(2246): Success
+INSERT(5529): Success
+REMOVE(2737): Success
+INSERT(8311): Success
+REMOVE(3556): Success
+REMOVE(5529): Success
+CONTAINS(490): Success
+REMOVE(9607): Success
+INSERT(6925): Success
+REMOVE(4581): Success
+REMOVE(5447): Success
+INSERT(8791): Success
+REMOVE(7578): Success
+INSERT(1457): Success
+INSERT(6146): Success
+INSERT(6850): Success
+INSERT(5012): Success
+REMOVE(3779): Success
+INSERT(9811): Success
+INSERT(4154): Success
+CONTAINS(8791): Success
+INSERT(9599): Success
+INSERT(1359): Success
+INSERT(6119): Success
+CONTAINS(5286): Success
+INSERT(1330): Success
+CONTAINS(6189): Success
+CONTAINS(7909): Success
+INSERT(8715): Success
+INSERT(9210): Success
+INSERT(3784): Success
+REMOVE(4617): Success
+CONTAINS(490): Success
+INSERT(2417): Success
+CONTAINS(5286): Success
+INSERT(9063): Success
+CONTAINS(6735): Success
+INSERT(8505): Success
+REMOVE(1330): Success
+REMOVE(2593): Success
+INSERT(4703): Success
+INSERT(2490): Success
+INSERT(7140): Success
+REMOVE(4703): Success
+REMOVE(2417): Success
+REMOVE(6189): Success
+REMOVE(1457): Success
+CONTAINS(4604): Success
+INSERT(2820): Success
+INSERT(1173): Success
+CONTAINS(5286): Success
+INSERT(1161): Success
+REMOVE(3059): Success
+INSERT(5625): Success
+INSERT(2526): Success
+INSERT(7892): Success
+CONTAINS(8884): Success
+INSERT(7861): Success
+INSERT(575): Success
+INSERT(2381): Success
+REMOVE(9811): Success
+INSERT(4262): Success
+INSERT(830): Success
+CONTAINS(6850): Success
+REMOVE(2820): Success
+INSERT(9570): Success
+INSERT(9790): Success
+INSERT(2080): Success
+REMOVE(6146): Success
+INSERT(6893): Success
+INSERT(8236): Success
+CONTAINS(6286): Success
+INSERT(1514): Success
+REMOVE(9599): Success
+REMOVE(4604): Success
+INSERT(1698): Success
+INSERT(1875): Success
+REMOVE(3244): Success
+INSERT(6432): Success
+CONTAINS(9790): Success
+REMOVE(7909): Success
+CONTAINS(830): Success
+INSERT(2207): Success
+CONTAINS(6795): Success
+REMOVE(9853): Success
+INSERT(5507): Success
+CONTAINS(3784): Success
+INSERT(5717): Success
+INSERT(6682): Success
+CONTAINS(6286): Success
+CONTAINS(5012): Success
+REMOVE(4262): Success
+INSERT(3534): Success
+INSERT(484): Success
+INSERT(8739): Success
+INSERT(6803): Success
+INSERT(541): Success
+CONTAINS(5286): Success
+CONTAINS(7892): Success
+INSERT(7202): Success
+CONTAINS(6735): Success
+INSERT(4817): Success
+REMOVE(6119): Success
+INSERT(4968): Success
+REMOVE(490): Success
+CONTAINS(7861): Success
+INSERT(7702): Success
+CONTAINS(2092): Success
+REMOVE(4817): Success
+INSERT(4583): Success
+INSERT(1466): Success
+INSERT(4959): Success
+INSERT(5751): Success
+REMOVE(7202): Success
+CONTAINS(4154): Success
+CONTAINS(3866): Success
+INSERT(6113): Success
+CONTAINS(830): Success
+INSERT(3597): Success
+INSERT(5191): Success
+CONTAINS(4968): Success
+INSERT(700): Success
+INSERT(7432): Success
+INSERT(9865): Success
+INSERT(3063): Success
+INSERT(6175): Success
+INSERT(8181): Success
+REMOVE(3597): Success
+CONTAINS(4154): Success
+REMOVE(9865): Success
+INSERT(9530): Success
+INSERT(5783): Success
+REMOVE(8791): Success
+REMOVE(9210): Success
+INSERT(2417): Success
+REMOVE(2092): Success
+REMOVE(1173): Success
+CONTAINS(8236): Success
+CONTAINS(1514): Success
+INSERT(5037): Success
+CONTAINS(8884): Success
+REMOVE(8715): Success
+INSERT(965): Success
+INSERT(4258): Success
+CONTAINS(4583): Success
+CONTAINS(9379): Success
+INSERT(221): Success
+REMOVE(1875): Success
+INSERT(453): Success
+CONTAINS(3063): Success
+INSERT(5972): Success
+INSERT(6810): Success
+INSERT(6211): Success
+INSERT(3344): Success
+INSERT(7359): Success
+INSERT(2272): Success
+INSERT(8525): Success
+INSERT(631): Success
+CONTAINS(7359): Success
+INSERT(2677): Success
+INSERT(5496): Success
+INSERT(8767): Success
+REMOVE(5496): Success
+REMOVE(2381): Success
+CONTAINS(5037): Success
+REMOVE(575): Success
+REMOVE(6211): Success
+INSERT(7312): Success
+INSERT(6541): Success
+INSERT(6110): Success
+REMOVE(5717): Success
+INSERT(7845): Success
+CONTAINS(6541): Success
+CONTAINS(6850): Success
+INSERT(1509): Success
+INSERT(4024): Success
+CONTAINS(6175): Success
+INSERT(5165): Success
+CONTAINS(6893): Success
+INSERT(3138): Success
+INSERT(1340): Success
+INSERT(8353): Success
+INSERT(6513): Success
+CONTAINS(2494): Success
+INSERT(3612): Success
+INSERT(2683): Success
+INSERT(5113): Success
+INSERT(2519): Success
+INSERT(9622): Success
+INSERT(1632): Success
+INSERT(1990): Success
+INSERT(6258): Success
+CONTAINS(6432): Success
+REMOVE(5972): Success
+REMOVE(9947): Success
+REMOVE(2207): Success
+REMOVE(2272): Success
+INSERT(4546): Success
+INSERT(2041): Success
+INSERT(6829): Success
+REMOVE(6893): Success
+REMOVE(7892): Success
+REMOVE(8236): Success
+REMOVE(6286): Success
+INSERT(1601): Success
+REMOVE(541): Success
+CONTAINS(8505): Success
+INSERT(9394): Success
+INSERT(6799): Success
+REMOVE(6432): Success
+INSERT(9318): Success
+CONTAINS(1514): Success
+REMOVE(2041): Success
+INSERT(1536): Success
+INSERT(433): Success
+REMOVE(7239): Success
+CONTAINS(2683): Success
+REMOVE(453): Success
+CONTAINS(965): Success
+INSERT(76): Success
+CONTAINS(76): Success
+CONTAINS(9570): Success
+REMOVE(8525): Success
+INSERT(8758): Success
+REMOVE(5507): Success
+CONTAINS(8884): Success
+CONTAINS(664): Success
+REMOVE(8739): Success
+CONTAINS(1466): Success
+INSERT(8164): Success
+INSERT(2608): Success
+CONTAINS(3138): Success
+CONTAINS(664): Success
+INSERT(5302): Success
+INSERT(3165): Success
+INSERT(6948): Success
+INSERT(1141): Success
+INSERT(580): Success
+REMOVE(700): Success
+INSERT(1491): Success
+INSERT(5663): Success
+INSERT(8320): Success
+INSERT(4817): Success
+CONTAINS(8164): Success
+CONTAINS(1601): Success
+CONTAINS(830): Success
+INSERT(6715): Success
+INSERT(5003): Success
+INSERT(1722): Success
+INSERT(6857): Success
+CONTAINS(1340): Success
+INSERT(339): Success
+CONTAINS(5191): Success
+REMOVE(2677): Success
+INSERT(5658): Success
+CONTAINS(7861): Success
+REMOVE(3063): Success
+INSERT(3813): Success
+INSERT(175): Success
+REMOVE(9997): Success
+INSERT(7558): Success
+CONTAINS(3165): Success
+CONTAINS(3138): Success
+INSERT(8107): Success
+REMOVE(6258): Success
+REMOVE(8107): Success
+CONTAINS(8353): Success
+REMOVE(6110): Success
+INSERT(9025): Success
+INSERT(4671): Success
+INSERT(1609): Success
+INSERT(4754): Success
+INSERT(228): Success
+INSERT(5859): Success
+INSERT(9507): Success
+INSERT(1240): Success
+INSERT(2218): Success
+INSERT(8864): Success
+CONTAINS(3784): Success
+INSERT(5389): Success
+CONTAINS(6803): Success
+REMOVE(9063): Success
+INSERT(9314): Success
+REMOVE(1466): Success
+REMOVE(8181): Success
+REMOVE(1698): Success
+REMOVE(580): Success
+INSERT(1995): Success
+CONTAINS(3534): Success
+INSERT(6216): Success
+INSERT(7969): Success
+CONTAINS(8353): Success
+CONTAINS(5783): Success
+CONTAINS(1340): Success
+CONTAINS(9530): Success
+INSERT(8499): Success
+CONTAINS(76): Success
+INSERT(3321): Success
+CONTAINS(6799): Success
+CONTAINS(8414): Success
+REMOVE(2683): Success
+CONTAINS(6799): Success
+INSERT(1501): Success
+CONTAINS(3138): Success
+CONTAINS(7432): Success
+REMOVE(6735): Success
+REMOVE(7861): Success
+CONTAINS(7702): Success
+REMOVE(5625): Success
+CONTAINS(228): Success
+CONTAINS(8320): Success
+CONTAINS(6948): Success
+INSERT(6716): Success
+CONTAINS(1990): Success
+REMOVE(9507): Success
+REMOVE(1491): Success
+INSERT(6499): Success
+CONTAINS(5037): Success
+REMOVE(7312): Success
+CONTAINS(5302): Success
+INSERT(4340): Success
+INSERT(8548): Success
+CONTAINS(965): Success
+REMOVE(5389): Success
+REMOVE(7432): Success
+INSERT(9665): Success
+INSERT(9784): Success
+INSERT(5760): Success
+CONTAINS(6175): Success
+INSERT(2330): Success
+INSERT(221): Duplicate Node
+INSERT(9921): Success
+INSERT(1573): Success
+CONTAINS(6799): Success
+REMOVE(8353): Success
+INSERT(8984): Success
+INSERT(7315): Success
+REMOVE(6795): Success
+CONTAINS(8767): Success
+INSERT(3298): Success
+CONTAINS(6803): Success
+CONTAINS(4024): Success
+INSERT(6565): Success
+REMOVE(1536): Success
+INSERT(1596): Success
+INSERT(7770): Success
+INSERT(7661): Success
+INSERT(9666): Success
+INSERT(2532): Success
+INSERT(7585): Success
+INSERT(5179): Success
+INSERT(2692): Success
+REMOVE(2526): Success
+INSERT(8165): Success
+INSERT(2435): Success
+REMOVE(6716): Success
+INSERT(6993): Success
+
+Pre-order Traversal:
+6993
+..6715
+....2692
+......2435
+........2417
+..........2330
+............1596
+..............1573
+................1359
+..................221
+....................175
+......................76
+........................50
+....................228
+......................965
+........................484
+..........................339
+............................433
+..........................830
+............................664
+..............................631
+........................1340
+..........................1240
+............................1141
+..............................1161
+..................1509
+....................1501
+....................1514
+..............1722
+................1601
+..................1609
+....................1632
+................1990
+..................2218
+....................1995
+......................2080
+........2519
+..........2490
+............2494
+..........2532
+............2608
+......6565
+........5179
+..........3298
+............3138
+..............3276
+................3165
+............4024
+..............3784
+................3321
+..................3534
+....................3344
+....................3612
+................3813
+..................3866
+..............4340
+................4258
+..................4154
+................5037
+..................4754
+....................4671
+......................4546
+........................4643
+..........................4583
+....................4817
+......................5003
+........................4959
+..........................4968
+........................5012
+..................5165
+....................5113
+..........6175
+............5302
+..............5191
+................5286
+..............5760
+................5658
+..................5751
+....................5663
+................5783
+..................6113
+....................5859
+......................5860
+............6499
+..............6216
+..............6513
+................6541
+........6682
+....6803
+......6799
+......6948
+........6857
+..........6850
+............6810
+..............6829
+..........6888
+............6925
+..7585
+....7558
+......7140
+........7315
+..........7359
+....8165
+......7770
+........7661
+..........7702
+........7845
+..........8164
+............7969
+......9666
+........8414
+..........8320
+............8311
+..........8767
+............8548
+..............8499
+................8505
+..............8758
+............9665
+..............8984
+................8884
+..................8864
+................9394
+..................9025
+....................9318
+......................9314
+......................9379
+..................9570
+....................9530
+....................9622
+......................9613
+........9784
+..........9790
+............9921
+
+In-order Traversal:
+........................50
+......................76
+....................175
+..................221
+....................228
+..........................339
+............................433
+........................484
+..............................631
+............................664
+..........................830
+......................965
+............................1141
+..............................1161
+..........................1240
+........................1340
+................1359
+....................1501
+..................1509
+....................1514
+..............1573
+............1596
+................1601
+..................1609
+....................1632
+..............1722
+................1990
+....................1995
+......................2080
+..................2218
+..........2330
+........2417
+......2435
+..........2490
+............2494
+........2519
+..........2532
+............2608
+....2692
+............3138
+................3165
+..............3276
+..........3298
+................3321
+....................3344
+..................3534
+....................3612
+..............3784
+................3813
+..................3866
+............4024
+..................4154
+................4258
+..............4340
+......................4546
+..........................4583
+........................4643
+....................4671
+..................4754
+....................4817
+........................4959
+..........................4968
+......................5003
+........................5012
+................5037
+....................5113
+..................5165
+........5179
+..............5191
+................5286
+............5302
+................5658
+....................5663
+..................5751
+..............5760
+................5783
+....................5859
+......................5860
+..................6113
+..........6175
+..............6216
+............6499
+..............6513
+................6541
+......6565
+........6682
+..6715
+......6799
+....6803
+............6810
+..............6829
+..........6850
+........6857
+..........6888
+............6925
+......6948
+6993
+......7140
+........7315
+..........7359
+....7558
+..7585
+........7661
+..........7702
+......7770
+........7845
+............7969
+..........8164
+....8165
+............8311
+..........8320
+........8414
+..............8499
+................8505
+............8548
+..............8758
+..........8767
+..................8864
+................8884
+..............8984
+..................9025
+......................9314
+....................9318
+......................9379
+................9394
+....................9530
+..................9570
+......................9613
+....................9622
+............9665
+......9666
+........9784
+..........9790
+............9921
+
+Post-order Traversal:
+........................50
+......................76
+....................175
+............................433
+..........................339
+..............................631
+............................664
+..........................830
+........................484
+..............................1161
+............................1141
+..........................1240
+........................1340
+......................965
+....................228
+..................221
+....................1501
+....................1514
+..................1509
+................1359
+..............1573
+....................1632
+..................1609
+................1601
+......................2080
+....................1995
+..................2218
+................1990
+..............1722
+............1596
+..........2330
+........2417
+............2494
+..........2490
+............2608
+..........2532
+........2519
+......2435
+................3165
+..............3276
+............3138
+....................3344
+....................3612
+..................3534
+................3321
+..................3866
+................3813
+..............3784
+..................4154
+................4258
+..........................4583
+........................4643
+......................4546
+....................4671
+..........................4968
+........................4959
+........................5012
+......................5003
+....................4817
+..................4754
+....................5113
+..................5165
+................5037
+..............4340
+............4024
+..........3298
+................5286
+..............5191
+....................5663
+..................5751
+................5658
+......................5860
+....................5859
+..................6113
+................5783
+..............5760
+............5302
+..............6216
+................6541
+..............6513
+............6499
+..........6175
+........5179
+........6682
+......6565
+....2692
+......6799
+..............6829
+............6810
+..........6850
+............6925
+..........6888
+........6857
+......6948
+....6803
+..6715
+..........7359
+........7315
+......7140
+....7558
+..........7702
+........7661
+............7969
+..........8164
+........7845
+......7770
+............8311
+..........8320
+................8505
+..............8499
+..............8758
+............8548
+..................8864
+................8884
+......................9314
+......................9379
+....................9318
+..................9025
+....................9530
+......................9613
+....................9622
+..................9570
+................9394
+..............8984
+............9665
+..........8767
+........8414
+............9921
+..........9790
+........9784
+......9666
+....8165
+..7585
+6993
+MAKE_EMPTY: 
+In-order Traversal:

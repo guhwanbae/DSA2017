@@ -16,14 +16,13 @@ using namespace std;
 
 FILE *ifp, *ofp;
 
-int		findPrimeNumber(int	startVal);
-
-
-//----------------------------------------------------------//
-//						Main	Function					//
-//----------------------------------------------------------//
+/****************************************************************************
+ * MAIN FUNCTION                                                  *
+ ****************************************************************************/
 
 int main(int argc, char* argv[]) {
+
+	cout << "This program is the Simulating of Hash Table with Open Addressing.." << endl;
 
 	char		buffer[MAX_LINE];
 	char		*token;
@@ -53,28 +52,24 @@ int main(int argc, char* argv[]) {
 			else if(!strcmp(token, "INSERT"))
 			{
 				keyVal = atoi(strtok(NULL, " \t\n"));
-
-				fprintf(ofp, "INSERT(%d): ", keyVal);
-
+				openAddressing->insert(keyVal, ofp);
 			}
 			else if(!strcmp(token, "FIND"))
 			{
 				keyVal = atoi(strtok(NULL, " \t\n"));
-
-				fprintf(ofp, "FIND(%d): ", keyVal);
-
+				openAddressing->find(keyVal, ofp);
 			}
 			else if(!strcmp(token, "REMOVE"))
 			{
 				keyVal = atoi(strtok(NULL, " \t\n"));
-
-				fprintf(ofp, "REMOVE(%d): ", keyVal);
-
+				openAddressing->remove(keyVal, ofp);
 			}
 		}
 	}
 
-	//->traverse(ofp);
+	openAddressing->traverse(ofp);
+
+	cout << "Complete Simulating.." << endl;
 
 	fclose(ifp);
 	fclose(ofp);

@@ -54,6 +54,14 @@ void PrimeTable::Eratosthenes() {
 	}
 }
 
+int PrimeTable::getPrime(int index) {
+	return primeTable[index];
+}
+
+int PrimeTable::getCurPrimeIndex() {
+	return curPrimeIndex;
+}
+
 void PrimeTable::resetCurPrimeIndex() {
 	curPrimeIndex = 0;
 }

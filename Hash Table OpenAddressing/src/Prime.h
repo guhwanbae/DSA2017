@@ -18,6 +18,8 @@ public :
 	~PrimeTable();
 	int findPrimeNumber(int);
 	void Eratosthenes();
+	int getPrime(int);
+	int getCurPrimeIndex();
 	void resetCurPrimeIndex();
 };
 

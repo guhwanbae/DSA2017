@@ -47,11 +47,14 @@ int HashTable::hash2(int keyVal, int i) {
 	return (R - (keyVal%R));
 }
 
-void HashTable::rehash() {
+void HashTable::rehash(FILE* fp) {
 	int oldTableSize = tableSize;
 	HashEntry** oldCells = cells;
 
 	tableSize = prime->findPrimeNumber(2*tableSize);
+
+	fprintf(fp, " - NUM_ELE(%d), TABLE_SIZE(%d) - REHASH(%d)\n", numCells, oldTableSize, tableSize);
+
 	cells = new HashEntry* [tableSize];
 	int index;
 	for(index=0;index<tableSize;++index) {
@@ -70,20 +73,46 @@ void HashTable::rehash() {
 	delete[] oldCells;
 }
 
-HashEntry* HashTable::find(int keyVal) {
+HashEntry* HashTable::find(int keyVal, FILE* fp) {
 	int i, index;
+	fprintf(fp, "FIND(%d): ", keyVal);
 	for(i=0; i<(tableSize/2); ++i) {
 		index = hash(keyVal + i*hash2(keyVal,i));
 
 		if(cells[index]->state == EMPTY) {
+			fprintf(fp, "Key Not Found\n");
 			cout << "Key Not Found" << endl;
 			return NULL;
 		}
 		else if(cells[index]->key == keyVal && cells[index]->state == ACTIVE) {
+			fprintf(fp, "SUCCESS\n");
 			return cells[index];
 		}
 	}
 	return NULL;
+}
+
+void HashTable::insert(int keyVal, FILE* fp) {
+	int i, index;
+	fprintf(fp, "INSERT(%d): ", keyVal);
+	for(i=0;i<(tableSize/2);++i) {
+		index = hash(keyVal + i*hash2(keyVal,i));
+
+		if(cells[index]->state != ACTIVE) {
+			fprintf(fp, "SUCCESS\n");
+			cells[index]->key = keyVal;
+			cells[index]->state = ACTIVE;
+			++numCells;
+			break;
+		}
+		else if(cells[index]->key == keyVal && cells[index]->state == ACTIVE) {
+			cout << "Duplicated Key" << endl;
+			return;
+		}
+	}
+
+	if(numCells/tableSize >= REHASH_THRESHOLD)
+		rehash(fp);
 }
 
 void HashTable::insert(int keyVal) {
@@ -97,26 +126,22 @@ void HashTable::insert(int keyVal) {
 			++numCells;
 			break;
 		}
-		else if(cells[index]->key == keyVal && cells[index]->state == ACTIVE) {
-			cout << "Duplicated Key" << endl;
-			return;
-		}
 	}
-
-	if(numCells/tableSize >= REHASH_THRESHOLD)
-		rehash();
 }
 
-void HashTable::remove(int keyVal) {
+void HashTable::remove(int keyVal, FILE* fp) {
 	int i,index;
+	fprintf(fp, "REMOVE(%d): ", keyVal);
 	for(i=0;i<(tableSize/2);++i) {
 		index = hash(keyVal + i*hash2(keyVal,i));
 
 		if(cells[index]->state == EMPTY) {
+			fprintf(fp, "Key Not Found\n");
 			cout << "Key Not Found" << endl;
 			return;
 		}
 		else if(cells[index]->key == keyVal && cells[index]->state == ACTIVE) {
+			fprintf(fp, "SUCCESS\n");
 			cells[index]->state = DELETED;
 			--numCells;
 			return;
@@ -124,6 +149,18 @@ void HashTable::remove(int keyVal) {
 	}
 }
 
-void HashTable::traverse() {
-
+void HashTable::traverse(FILE* fp) {
+	int numProbing=0;
+	fprintf(fp, "TRAVERSE - NUM_ELE(%d), TABLE_SIZE(%d)\n", numCells, tableSize);
+	fprintf(fp, "TOTAL NUMBER OF PROBING: %d\n", numProbing);
+	for(int index=0; index<tableSize; ++index) {
+		fprintf(fp, "[Index (%d)] ", index);
+		if(cells[index]->state == EMPTY)
+			fprintf(fp, "EMPTY\n");
+		else if(cells[index]->state == DELETED)
+			fprintf(fp, "DELETED\n");
+		else if(cells[index]->state == ACTIVE) {
+			fprintf(fp, "ACTIVE(%d)\n", cells[index]->key);
+		}
+	}
 }

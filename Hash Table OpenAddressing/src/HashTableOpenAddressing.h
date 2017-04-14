@@ -95,13 +95,14 @@ public :
 
 	int hash(int);
 	int hash2(int, int);
-	void rehash();
+	void rehash(FILE* );
 
 	void insert(int);
-	HashEntry* find(int);
-	void remove(int);
+	void insert(int, FILE*);
+	HashEntry* find(int, FILE*);
+	void remove(int, FILE*);
 
-	void traverse();
+	void traverse(FILE*);
 };
 
 #endif /* SRC_HASHTABLEOPENADDRESSING_H_ */

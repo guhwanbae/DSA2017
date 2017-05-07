@@ -86,6 +86,7 @@ public :
 	int isEmpty();
 
 	int getMin();
+	int getCurSize();
 
 	void testHeapOrder(int);
 	void copy(int*, int);

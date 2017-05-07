@@ -57,16 +57,13 @@ int main(int argc, char* argv[]) {
 			if(token[0] == '#')	continue;
 			else if(!strcmp(token, "BUILD_HEAP"))
 			{
-				while((buildToken = strtok(NULL, "\t\n")) != NULL) {
-					buildBuffer[buildBufferSize++] = atoi(buildToken);
-				}
-				cout << "Success : Catch the Keys" << endl;
+				buildBufferSize = atoi(strtok(NULL," \t\n"));
 				for(int index=0;index<buildBufferSize;++index) {
-					cout << "BuildBuffer[" << index << "] : " << buildBuffer[index] << endl;
+					buildBuffer[index] = atoi(strtok(NULL," \t\n"));
 				}
-				fprintf(ofp, "BUILD_HEAP(%d): ",buildBuffer[0]);
-				heap->buildHeap(buildBuffer+1, buildBufferSize-1);
-				heap->traverse(ofp);		fprintf(ofp,"\n");
+				fprintf(ofp, "BUILD_HEAP(%d): ",buildBufferSize);
+				heap->buildHeap(buildBuffer, buildBufferSize);
+				heap->traverse(ofp);
 				buildBufferSize = 0;
 			}
 			else if(!strcmp(token, "INSERT"))
@@ -83,7 +80,7 @@ int main(int argc, char* argv[]) {
 			}
 			else if(!strcmp(token, "PRINT"))
 			{
-				fprintf(ofp, "PRINT(%d): ", heap->getMin());
+				fprintf(ofp, "PRINT(%d): ", heap->getCurSize());
 				heap->traverse(ofp);
 			}
 		}

@@ -52,6 +52,24 @@ void BinaryHeap::percolateDown(int index) {
 	keys[i] = refKey;
 }
 
+void BinaryHeap::percolateUp(int index) {
+	int i = index;
+	int refKey = keys[index];
+	int child;
+	for(; (i*2) <= curSize; i=child) {
+		child = i * 2;
+		if(child != curSize && keys[child] < keys[child+1]) {
+			++child;
+		}
+		if(refKey < keys[child]) {
+			keys[i] = keys[child];
+		}
+		else
+			break;
+	}
+	keys[i] = refKey;
+}
+
 void BinaryHeap::insert(int keyVal, FILE* fp) {
 	if(isFull()) {
 		cout << "Heap is full.." << endl;
@@ -80,6 +98,19 @@ int BinaryHeap::deleteMin(FILE* fp) {
 	fprintf(fp, "SUCCESS\n");
 
 	return rootKey;
+}
+
+void BinaryHeap::deleteMax(FILE* fp) {
+	if(isEmpty()) {
+		cout << "Empty Heap.." << endl;
+		return;
+	}
+
+	int rootKey = keys[ROOT_INDEX];
+	keys[ROOT_INDEX] = keys[curSize--];
+	percolateUp(ROOT_INDEX);
+
+	keys[curSize+1] = rootKey;
 }
 
 void BinaryHeap::traverse(FILE* fp) {

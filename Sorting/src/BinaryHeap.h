@@ -16,21 +16,6 @@
 #define MAX_VALUE	10000
 
 /****************************************************************************
- * MACROS TO SHOW THE STATE OF CELL                               *
- ****************************************************************************/
-#ifndef EMPTY
-#define EMPTY 10001
-#endif
-
-#ifndef ACTIVE
-#define ACTIVE 10002
-#endif
-
-#ifndef DELETED
-#define DELETED 10003
-#endif
-
-/****************************************************************************
  * MACROS FOR THE RULES OF LOGICAL DECISIONS                      *
  ****************************************************************************/
 #ifndef TRUE

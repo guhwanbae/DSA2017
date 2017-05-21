@@ -50,7 +50,7 @@
 #endif
 
 /****************************************************************************
- * THE FUNTIONAL DECLARATIONS OF HASH TABLE(WITH OPEN ADDRESSING)  *
+ * THE FUNTIONAL DECLARATIONS OF BINARY HEAP                      *
  ****************************************************************************/
 #ifndef ROOT_INDEX
 #define ROOT_INDEX 1
@@ -76,9 +76,11 @@ public :
 	void buildHeap(int* ,int);
 
 	void percolateDown(int);
+	void percolateUp(int);
 
 	void insert(int, FILE*);
 	int deleteMin(FILE*);
+	void deleteMax(FILE*);
 
 	void traverse(FILE*);
 

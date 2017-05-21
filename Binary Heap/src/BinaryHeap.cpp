@@ -10,6 +10,9 @@
 #include "BinaryHeap.h"
 using namespace std;
 
+/****************************************************************************
+ * THE FUNTIONAL IMPLEMENTAIONS OF BINARY HEAP                     *
+ ****************************************************************************/
 BinaryHeap::BinaryHeap() {
 	curSize = 0;
 	keys = new int[HEAP_SIZE];

@@ -31,7 +31,6 @@ int main(int argc, char* argv[]) {
 
 	int			buildBuffer[HEAP_SIZE] = {0,};
 	int			buildBufferSize = 0;
-	char*		buildToken = NULL;
 
 	int 		minVal = 0;
 

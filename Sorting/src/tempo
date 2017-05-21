@@ -1,0 +1,169 @@
+/*
+ * BinaryHeap.h
+ *
+ *  Created on: 2017. 4. 15.
+ *      Author: guhwan
+ */
+
+#ifndef SRC_BINARYHEAP_H_
+#define SRC_BINARYHEAP_H_
+
+/****************************************************************************
+ * MACROS FOR FILE I/O RULES                                       *
+ ****************************************************************************/
+#define MAX_SIZE	1000
+#define MAX_LINE	2048
+#define MAX_VALUE	10000
+
+/****************************************************************************
+ * MACROS TO SHOW THE STATE OF CELL                               *
+ ****************************************************************************/
+#ifndef EMPTY
+#define EMPTY 10001
+#endif
+
+#ifndef ACTIVE
+#define ACTIVE 10002
+#endif
+
+#ifndef DELETED
+#define DELETED 10003
+#endif
+
+/****************************************************************************
+ * MACROS FOR THE RULES OF LOGICAL DECISIONS                      *
+ ****************************************************************************/
+#ifndef TRUE
+#define TRUE 1
+#endif
+
+#ifndef NULL
+#define NULL	0
+#endif
+
+#ifndef SUCCESS
+#define SUCCESS 1
+#endif
+
+#ifndef FAILURE
+#define FAILURE 0
+#endif
+
+/****************************************************************************
+ * THE FUNTIONAL DECLARATIONS OF HASH TABLE(WITH OPEN ADDRESSING)  *
+ ****************************************************************************/
+#ifndef ROOT_INDEX
+#define ROOT_INDEX 1
+#endif
+
+#ifndef SENTINEL_INDEX
+#define SENTINEL_INDEX 0
+#endif
+
+#define SENTINEL -sizeof(int)
+#define HEAP_SIZE 1000
+
+#include <math.h>
+
+class BinaryHeap{
+private :
+	int* keys;
+	int curSize;
+public :
+	BinaryHeap(int);
+	~BinaryHeap();
+
+	void buildHeap(int* ,int);
+
+	void percolateUp(int);
+
+	void deleteMax();
+
+	int isFull();
+	int isEmpty();
+
+	void getKeys(int*,int);
+};
+
+#endif /* SRC_BINARYHEAP_H_ */
+
+
+/*
+ * BinaryHeap.cpp
+ *
+ *  Created on: 2017. 4. 15.
+ *      Author: guhwan
+ */
+
+#include <iostream>
+#include <stdio.h>
+#include "BinaryHeap.h"
+using namespace std;
+
+BinaryHeap::BinaryHeap(int heapSize) {
+	curSize = 0;
+	keys = new int[heapSize];
+	keys[curSize] = SENTINEL;
+}
+
+BinaryHeap::~BinaryHeap() {
+	delete[] keys;
+	keys = NULL;
+}
+
+void BinaryHeap::buildHeap(int* arr, int size) {
+	curSize = size;
+	for(int i=0; i<size; ++i) {
+		keys[i+1] = arr[i];
+	}
+	for(int j=curSize/2; j>0; --j) {
+		percolateUp(j);
+	}
+}
+
+void BinaryHeap::percolateUp(int index) {
+	int i = index;
+	int refKey = keys[index];
+	int child;
+	for(; (i*2) <= curSize; i=child) {
+		child = i * 2;
+		if(child != curSize && keys[child] < keys[child+1]) {
+			++child;
+		}
+		if(refKey < keys[child]) {
+			keys[i] = keys[child];
+		}
+		else
+			break;
+	}
+	keys[i] = refKey;
+}
+
+void BinaryHeap::deleteMax() {
+	if(isEmpty()) {
+		cout << "Empty Heap.." << endl;
+		return;
+	}
+
+	int rootKey = keys[ROOT_INDEX];
+	keys[ROOT_INDEX] = keys[curSize--];
+	percolateUp(ROOT_INDEX);
+	cout << "BINARYHEAP -> DELETEMAX : SUCCESS" << endl;
+
+	keys[curSize+1] = rootKey;
+}
+
+void BinaryHeap::getKeys(int* arr, int size) {
+	for(int index=0;index < size; ++index) {
+		arr[index] = keys[index+1];
+	}
+}
+
+int BinaryHeap::isFull() {
+	return (curSize >= HEAP_SIZE);
+}
+
+int BinaryHeap::isEmpty() {
+	return (curSize == SENTINEL_INDEX);
+}
+

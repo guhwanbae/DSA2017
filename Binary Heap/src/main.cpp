@@ -20,7 +20,6 @@ FILE *ifp, *ofp;
 /****************************************************************************
  * MAIN FUNCTION                                                  *
  ****************************************************************************/
-
 int main(int argc, char* argv[]) {
 
 	cout << "This program is the Simulating of Binary Heap.." << endl;

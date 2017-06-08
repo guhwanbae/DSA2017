@@ -22,16 +22,22 @@ Graph::~Graph() {
 	vertex = NULL;
 }
 
+
 void Graph::initVertexKeys() {
 	for(int index=0; index<vertexSize; ++index) {
-		vertex[index] = NULL;
+		vertex[index] = new Vertex(index);
 	}
 }
 void Graph::deleteVertexKeys() {
 	for(int index=0; index<vertexSize; ++index) {
 		delete vertex[index];
 	}
-	initVertexKeys();
+	clearVertex();
+}
+void Graph::clearVertex() {
+	for(int index=0; index<vertexSize; ++index) {
+		vertex[index] = NULL;
+	}
 }
 
 void Graph::insertEdge(int curVertex, int nextVertex, double newCost) {
@@ -39,12 +45,14 @@ void Graph::insertEdge(int curVertex, int nextVertex, double newCost) {
 		vertex[curVertex] = new Vertex(curVertex);
 	}
 	vertex[curVertex]->insertEdge(nextVertex,newCost);
+	vertex[nextVertex]->incInDegree();
 }
 void Graph::insertEdge(int curVertex, int nextVertex) {
 	if(vertex[curVertex] == NULL) {
 		vertex[curVertex] = new Vertex(curVertex);
 	}
 	vertex[curVertex]->insertEdge(nextVertex);
+	vertex[nextVertex]->incInDegree();
 }
 
 void Graph::printGraph() {
@@ -70,6 +78,9 @@ void Graph::printNonWeightedGraph() {
 			printf("\tVERTEX %2d (%d): ",index,0);
 		}	printf("\n");
 	}
+	for(int index=0; index<vertexSize; ++index) {
+		printf("\tVERTEX (%2d) : INDEGREE(%2d)\n",vertex[index]->getVertexID(),vertex[index]->getInDegree());
+	}
 }
 void Graph::printWeightedGraph() {
 	for(int index=0; index<vertexSize; ++index) {
@@ -90,10 +101,12 @@ void Graph::printWeightedGraph() {
 
 void Graph::topologicalSort() {
 	Queue<Vertex>* queue = new Queue<Vertex>(vertexSize);
+	Queue<Vertex>* order = new Queue<Vertex>(vertexSize);
 
 	for(int i=0; i<vertexSize; ++i) {
 		if(vertex[i]->getInDegree() == 0) {
 			queue->enQueue(vertex[i]);
+			order->enQueue(vertex[i]);
 		}
 	}
 
@@ -106,12 +119,21 @@ void Graph::topologicalSort() {
 		while(e != NULL) {
 			if( vertex[e->getVertexID()]->decInDegree() == 0 ) {
 				queue->enQueue(vertex[e->getVertexID()]);
+				order->enQueue(vertex[e->getVertexID()]);
 			}
 			e = e->getNext();
 		}
 	}
-	delete queue;
-	queue = NULL;
+
+	printSortedOrder(order);
+	delete queue;		queue = NULL;
+	delete order;		order = NULL;
+}
+
+void Graph::printSortedOrder(Queue<Vertex>* sortedQueue) {
+	for(int order=1; order<=vertexSize; ++order) {
+		printf("\tORDER(%2d) -- VERTEX %2d\n",order,(sortedQueue->deQueue())->getVertexID());
+	}
 }
 
 void Graph::resetSPRMetrics() {
@@ -119,5 +141,11 @@ void Graph::resetSPRMetrics() {
 		vertex[index]->setKnown(false);
 		vertex[index]->setDist(INFINITY);
 		vertex[index]->setPrev(0);
+	}
+}
+
+void Graph::edgeSort() {
+	for(int index=0; index<vertexSize; ++index) {
+		vertex[index]->edgeSort();
 	}
 }

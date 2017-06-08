@@ -8,27 +8,21 @@
 #ifndef SRC_QUEUE_H_
 #define SRC_QUEUE_H_
 
-#ifndef TRUE
-#define TRUE 1
-#endif
-
-#ifndef FAIL
-#define FAIL 0
-#endif
-
 #ifndef NULL
 #define NULL 0
 #endif
 
-#define MAX_VALUE	10000
-
 #include <iostream>
 using namespace std;
+
+#ifndef Q_DUMMY_SIZE
+#define Q_DUMMY_SIZE 1
+#endif
 
 template<typename T>
 class Queue {
 private :
-	int rare;
+	int rear;
 	int front;
 	int qSize;
 	T** Q;
@@ -36,10 +30,10 @@ public :
 	Queue(int);
 	~Queue();
 
-	int isEmpty();
-	int isFull();
+	bool isEmpty();
+	bool isFull();
 
-	int enQueue(T*);
+	bool enQueue(T*);
 	T* deQueue();
 
 	void printQueue();
@@ -47,9 +41,9 @@ public :
 
 template <typename T>
 Queue<T>::Queue(int newSize) {
-	rare = 0;
+	rear = 0;
 	front = 0;
-	qSize = newSize;
+	qSize = newSize+Q_DUMMY_SIZE;
 
 	Q = new T*[qSize];
 
@@ -70,43 +64,38 @@ T* Queue<T>::deQueue() {
 		cout << "Error:Queue:Dequeue:Queue is Empty!" << endl;
 		return Q[0]; //return error value
 	}
-
-	T* temp = Q[front];
-	front = (front+1) % qSize;
-	return temp; //return not max_value+1 -> success!
-}
-
-template <typename T>
-int Queue<T>::enQueue(T* element) {
-	if(isFull()) {
-		return FAIL;
+	else {
+		front = (front+1) % (qSize);
+		return Q[front]; //return not max_value+1 -> success!
 	}
-
-	Q[(rare++) % (qSize)] = element;
-	return TRUE;
 }
 
 template <typename T>
-int Queue<T>::isEmpty() {
-	if(front == rare)
+bool Queue<T>::enQueue(T* element) {
+	if(isFull()) {
+		return false;
+	}
+	else {
+		rear = (rear+1) % (qSize);
+		Q[rear] = element;
 		return true;
-
-	return false;
+	}
 }
 
 template <typename T>
-int Queue<T>::isFull() {
-	int state = (qSize+1) - front + rare;
-	if(state == qSize)
-		return true;
+bool Queue<T>::isEmpty() {
+	return (front == rear);
+}
 
-	return false;
+template <typename T>
+bool Queue<T>::isFull() {
+	return ((rear+1)%(qSize) == front);
 }
 
 template <typename T>
 void Queue<T>::printQueue() {
-	//print from front to rare
-	for(int i = front;i != rare; ((i++) % (qSize))) {
+	//print from front to rear
+	for(int i = front;i != rear; ((i++) % (qSize))) {
 		cout << Q[i] << " -> ";
 	}
 	cout << endl;

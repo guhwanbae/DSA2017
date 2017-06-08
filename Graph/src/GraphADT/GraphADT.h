@@ -11,6 +11,7 @@
 #include "../QueueADT/Queue.h"
 #include "../HeapADT/BinaryHeap.h"
 #include "../DisjointSetADT/DisjointSet.h"
+#include "../ListADT/SortedLinkedList.h"
 #include <limits.h>
 #include <float.h>
 
@@ -32,7 +33,7 @@ public :
 	double getCost();
 	Edge* getNext();
 	//set
-
+	void setNext(Edge*);
 };
 
 class Vertex {
@@ -55,7 +56,9 @@ public :
 	Edge* findEdge(int);
 	//For Topological Sort
 	int decInDegree();
+	void incInDegree();
 	//For Traversals
+	void edgeSort();
 		//void resetSPRMetrics();
 	//Encapsulation
 	//get
@@ -78,10 +81,11 @@ private :
 	int vertexSize;
 	int edgeSize;
 
-	void initVertexKeys();
-	void deleteVertexKeys();
+	void initVertexKeys();	void deleteVertexKeys();	void clearVertex();
 	void resetSPRMetrics();
 	void printNonWeightedGraph();	void printWeightedGraph();
+	void printSortedOrder(Queue<Vertex>*);
+	void edgeSort();
 public :
 	//Basic Graph ADT
 	Graph(int, int);

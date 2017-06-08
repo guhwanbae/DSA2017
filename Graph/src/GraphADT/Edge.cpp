@@ -7,6 +7,8 @@
 
 #include "GraphADT.h"
 
+/* Edge -> Adjacently Sorted Linked List */
+
 Edge::Edge(int newVertexID, double newCost, Edge* newNext) {
 	vertexID = newVertexID;
 	cost = newCost;
@@ -45,3 +47,6 @@ Edge* Edge::getNext() {
 	return next;
 }
 
+void Edge::setNext(Edge* newNext) {
+	next = newNext;
+}

@@ -8,9 +8,8 @@
 #include "GraphADT.h"
 
 Vertex::Vertex(int newVertexID) {
-	vertexID = newVertexID;
-	degree = 0;
-	head = NULL;
+	vertexID = newVertexID;	degree = 0;	head = NULL;
+	indegree = 0;
 }
 Vertex::~Vertex() {
 	deleteEdgeKeys();
@@ -48,6 +47,9 @@ void Vertex::insertEdge(int newVertexID, double newCost) {
 int Vertex::decInDegree() {
 	return --indegree;
 }
+void Vertex::incInDegree() {
+	++indegree;
+}
 
 //Encapsulation
 //get
@@ -78,4 +80,11 @@ void Vertex::setDist(int newDist) {
 }
 void Vertex::setPrev(int newPrev) {
 	prev = newPrev;
+}
+
+/* For Traversals */
+void Vertex::edgeSort() {
+	SLL<Edge>* sortedEdgeHead = new SLL<Edge> (head,degree);
+	head = sortedEdgeHead->sortEdge();
+	delete sortedEdgeHead; sortedEdgeHead = NULL;
 }

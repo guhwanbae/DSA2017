@@ -26,6 +26,10 @@ int main(int argc, char** argv) {
 	simulGraph->insertEdge(4,6);
 	simulGraph->insertEdge(6,5);
 	simulGraph->printGraph();
+	simulGraph->topologicalSort();
+
+
+	delete simulGraph; simulGraph = NULL;
 
 	cout << endl <<  "Complete Simulating..." << endl;
 

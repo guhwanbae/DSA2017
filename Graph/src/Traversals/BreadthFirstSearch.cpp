@@ -7,10 +7,19 @@
 
 #include "../GraphADT/GraphADT.h"
 
-void Graph::breathFirstSearch(int sourceID) {
+void Graph::breadthFirstSearch(int sourceID) {
+	edgeSort();
+	resetSPRMetrics();
+	printf("BREATH-FIRST SEARCH (SRC: %2d)\n",sourceID);
+	breadthFirstSearch(vertex[sourceID]);
+	printSingleSourceShortestPaths(sourceID);
+}
+
+void Graph::breadthFirstSearch(Vertex* source) {
+	int sourceID = source->getVertexID();
+
 	Queue<Vertex>* queue = new Queue<Vertex>(vertexSize);
-	//Queue(Q) is T** type..
-	resetSPRMetrics(); //Sorted Linked List
+	//Queue(Q) => buffer -> T** type, KeyVal -> T* type..
 
 	vertex[sourceID]->setDist(0);
 	queue->enQueue(vertex[sourceID]);
@@ -22,16 +31,15 @@ void Graph::breathFirstSearch(int sourceID) {
 		Edge* e = v->getEdgeHead();
 
 		while(e != NULL) {
-			if (vertex[e->getVertexID()]->getDist() == INFINITY) {
+			if (vertex[e->getVertexID()]->getDist() == DIST_INFINITY) {
 				vertex[e->getVertexID()]->setDist(v->getDist()+1);
 				vertex[e->getVertexID()]->setPrev(v->getVertexID());
 				queue->enQueue(vertex[e->getVertexID()]);
 			}
 			e = e->getNext();
 		}
-
-		printSingleSourceShortestPaths();
 	}
+
 	delete queue;
 	queue = NULL;
 }

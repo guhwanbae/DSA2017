@@ -45,23 +45,38 @@
 #define SENTINEL NULL
 #endif
 
-#define HEAP_SIZE 1000
+#ifndef NOT_A_VERTEX
+#define NOT_A_VERTEX -1
+#endif
 
 #include "../GraphADT/GraphADT.h"
+#include <stdio.h>
+
+typedef double refType;
 
 /* Generic Type Heap ADT */
 template<typename T>
 class BinaryHeap{
+	// TODO :
+		// Reference of compare !! => keys[index]->getDistance()
+		// getDistance return double type key!!
+		// please modify refType(typedef)
+		// please modify getRefKey(function)
 private :
 	T** keys;
+	int heapSize;
 	int curSize;
-	T** maps;
 
+	refType getRefKey(T*);
 	void percolateDown(int);
 	void percolateUp(int);
-
-	int isFull();
-	int isEmpty();
+	bool isFull();
+	bool isEmpty();
+	void initKeys();
+	int findIndex(T*);
+private :
+	void swap(T*&,T*&);
+	void Traverse();
 public :
 	BinaryHeap(int);
 	~BinaryHeap();
@@ -82,17 +97,61 @@ public :
  ****************************************************************************/
 template<typename T>
 BinaryHeap<T>::BinaryHeap(int newHeapSize) {
+	heapSize = newHeapSize + 1;
 	curSize = SENTINEL_INDEX;
-	keys = new T*[newHeapSize];
-	keys[curSize] = SENTINEL;
-
-	maps = new T*[newHeapSize];
+	keys = new T*[heapSize];
+	keys[SENTINEL_INDEX] = SENTINEL;
+	initKeys();
 }
 template<typename T>
 BinaryHeap<T>::~BinaryHeap() {
 	delete[] keys;
 	keys = NULL;
 }
+
+template<typename T>
+void BinaryHeap<T>::initKeys() {
+	for(int index=0; index<heapSize; ++index) {
+		keys[index] = NULL;
+	}
+}
+
+template<typename T>
+refType BinaryHeap<T>::getRefKey(T* element) {
+	if(element == NULL) {
+		return 0;
+	}
+	else {
+		return element->getDistance();
+	}
+}
+
+template<typename T>
+int BinaryHeap<T>::findIndex(T* element) {
+	for(int index=ROOT_INDEX; index<heapSize && keys[index]!=NULL; ++index) {
+		if(element == keys[index]) {
+			return index;
+		}
+	}
+	return SENTINEL_INDEX;
+}
+
+template<typename T>
+void BinaryHeap<T>::swap(T*& key1, T*& key2) {
+	T* temp = key2;
+	key2 = key1;
+	key1 = temp;
+}
+
+template<typename T>
+void BinaryHeap<T>::Traverse()  {
+	printf("cur Size : %d\t",curSize);
+	for(int index=ROOT_INDEX; index<=curSize; ++index) {
+		printf("INDEX(%d) RefKey : %f -> ",index, getRefKey(keys[index]));
+	}
+	printf("\n");
+}
+
 template<typename T>
 void BinaryHeap<T>::buildHeap(T** arr, int size) {
 	curSize = size;
@@ -105,62 +164,64 @@ void BinaryHeap<T>::buildHeap(T** arr, int size) {
 }
 template<typename T>
 void BinaryHeap<T>::percolateDown(int index) {
-	T* refKey = keys[index];
+	int i = index;
+	refType refKey = getRefKey(keys[index]);
+	T* rootElement = keys[index];
+
 	int child;
-	for(; (index*2) <= curSize; index=child) {
-		child = index * 2;
-		if(child != curSize && keys[child] > keys[child+1]) {
+	for(; (i*2) <= curSize; i=child) {
+		child = i * 2;
+		if(child != curSize && getRefKey(keys[child]) > getRefKey(keys[child+1])) {
 			++child;
 		}
-		if(refKey > keys[child]) {
-			keys[index] = keys[child];
+		if(refKey > getRefKey(keys[child])) {
+			keys[i] = keys[child];
 		}
 		else
 			break;
 	}
-	keys[index] = refKey;
+	keys[i] = rootElement;
 }
 template<typename T>
 void BinaryHeap<T>::percolateUp(int index) {
-	T* refKey = keys[index];
-	int child;
-	for(; (index*2) <= curSize; index=child) {
-		child = index * 2;
-		if(child != curSize && keys[child] < keys[child+1]) {
-			++child;
-		}
-		if(refKey < keys[child]) {
-			keys[index] = keys[child];
+	int i = index;
+	refType refKey = getRefKey(keys[index]);
+	int parent;
+	for(; (i/2) >= ROOT_INDEX; i=parent) {
+		parent = i / 2;
+		if(refKey < getRefKey(keys[parent])) {
+			swap(keys[i],keys[parent]);
 		}
 		else
 			break;
 	}
-	keys[index] = refKey;
 }
 template<typename T>
-void BinaryHeap<T>::insert(T* keyVal) {
+void BinaryHeap<T>::insert(T* element) {
 	if(isFull()) {
+		printf("#Error:Heap:HEAP is Full!\n");
 		return; //HEAP FULL!
 	}
 	else {
 		int index = ++curSize;
-		while(keys[index/2] > keyVal) {
+		while(getRefKey(keys[index/2]) > getRefKey(element)) {
 			keys[index] = keys[index/2];
 			index = index/2;
 		}
-		keys[index] = keyVal;
+		keys[index] = element;
 	}
 }
 template<typename T>
 T* BinaryHeap<T>::deleteMin() {
 	if(isEmpty()) {
+		printf("#Error:Heap:HEAP is Empty!\n");
 		return SENTINEL; //HEAP EMPTY!
 	}
-	T* rootKey = keys[ROOT_INDEX];
+	T* rootElement = keys[ROOT_INDEX];
 	keys[ROOT_INDEX] = keys[curSize--];
 	percolateDown(ROOT_INDEX);
 
-	return rootKey;
+	return rootElement;
 }
 template<typename T>
 T* BinaryHeap<T>::deleteMax() {
@@ -168,19 +229,19 @@ T* BinaryHeap<T>::deleteMax() {
 		return; //HEAP EMPTY!
 	}
 
-	T* rootKey = keys[ROOT_INDEX];
+	T* rootElement = keys[ROOT_INDEX];
 	keys[ROOT_INDEX] = keys[curSize--];
 	percolateUp(ROOT_INDEX);
 
-	keys[curSize+1] = rootKey;
-	return rootKey;
+	keys[curSize+1] = rootElement;
+	return rootElement;
 }
 template<typename T>
-int BinaryHeap<T>::isFull() {
-	return (curSize >= HEAP_SIZE);
+bool BinaryHeap<T>::isFull() {
+	return (curSize >= (heapSize-1));
 }
 template<typename T>
-int BinaryHeap<T>::isEmpty() {
+bool BinaryHeap<T>::isEmpty() {
 	return (curSize == SENTINEL_INDEX);
 }
 template<typename T>
@@ -195,12 +256,16 @@ template<typename T>
 int BinaryHeap<T>::getCurSize() {
 	return curSize;
 }
-/*
-template<typename T>
-void decreaseKey(T key) {
-	if (maps[key->getVertexID()] == NOT_A_VERTEX) {
 
+template<typename T>
+void BinaryHeap<T>::decreaseKey(T* element) {
+	int index = findIndex(element);
+	if(index != SENTINEL_INDEX) {
+		percolateUp(index);
+	}
+	else {
+		insert(element);
 	}
 }
-*/
+
 #endif /* SRC_HEAPADT_BINARYHEAP_H_ */

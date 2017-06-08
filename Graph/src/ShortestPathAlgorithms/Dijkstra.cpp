@@ -7,32 +7,36 @@
 
 #include "../GraphADT/GraphADT.h"
 
-void Graph::dijkstra(int source) {
-	BinaryHeap<Vertex> *heap = new BinaryHeap<Vertex>(vertexSize);
-	resetSPRMetrics(); //v->dist = INFINITY
+void Graph::dijkstra(int sourceID) {
+	printf("DIJKSTRA (SRC: %2d)\n",sourceID);
+	resetSPRMetrics(); //v->distance = COST_INFINITY
+	dijkstra(vertex[sourceID]);
+	printSingleSourceShortestPaths(sourceID,COST_TYPE_DOUBLE);
+}
 
-	vertex[source]->setDist(0);
-	heap->insert(vertex[source]);
+void Graph::dijkstra(Vertex* source) {
+	BinaryHeap<Vertex> *heap = new BinaryHeap<Vertex>(vertexSize);
+
+	source->setDistance(0);
+	heap->insert(source);
 
 	Vertex* v = NULL;
-	while ( (v = heap->deleteMin()) != NULL ) {
+	while ((v = heap->deleteMin()) != NULL) {
 		v->setKnown(true);
 		Edge* e = v->getEdgeHead();
 
-		while ( e != NULL ) {
-			if ( vertex[e->getVertexID()]->getKnown() == false ) {
-				/*
-				if ( v->getDist() + e->getDist() < vertex[e->getVertexID()]->getDist() ) {
-					vertex[e->getVertexID()]->setDist(v->getDist() + e->getDist());
+		while (e != NULL) {
+			if (vertex[e->getVertexID()]->getKnown() == false) {
+				if (v->getDistance() + e->getCost() < vertex[e->getVertexID()]->getDistance()) {
+					vertex[e->getVertexID()]->setDistance(	v->getDistance() + e->getCost());
 					vertex[e->getVertexID()]->setPrev(v->getVertexID());
 
 					heap->decreaseKey(vertex[e->getVertexID()]);
 				}
-				*/
 			}
 			e = e->getNext();
 		}
 	}
-	printSingleSourceShortestPaths();
+
 	delete heap;	heap = NULL;
 }

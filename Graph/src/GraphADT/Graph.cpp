@@ -15,6 +15,9 @@ Graph::Graph(int vSize, int eSize) {
 	vertexSize = vSize;
 	edgeSize = eSize;
 	initVertexKeys();
+
+	curVertexSize = 0;
+	curEdgeSize = 0;
 }
 Graph::~Graph() {
 	deleteVertexKeys();
@@ -22,32 +25,47 @@ Graph::~Graph() {
 	vertex = NULL;
 }
 
+
 void Graph::initVertexKeys() {
+	curVertexSize = vertexSize;
 	for(int index=0; index<vertexSize; ++index) {
-		vertex[index] = NULL;
+		vertex[index] = new Vertex(index);
 	}
 }
 void Graph::deleteVertexKeys() {
+	curVertexSize = 0; curEdgeSize = 0;
 	for(int index=0; index<vertexSize; ++index) {
 		delete vertex[index];
 	}
-	initVertexKeys();
+	clearVertex();
+}
+void Graph::clearVertex() {
+	for(int index=0; index<vertexSize; ++index) {
+		vertex[index] = NULL;
+	}
 }
 
 void Graph::insertEdge(int curVertex, int nextVertex, double newCost) {
 	if(vertex[curVertex] == NULL) {
 		vertex[curVertex] = new Vertex(curVertex);
+		++curVertexSize;
 	}
 	vertex[curVertex]->insertEdge(nextVertex,newCost);
+	vertex[nextVertex]->incInDegree();
+	++curEdgeSize;
 }
 void Graph::insertEdge(int curVertex, int nextVertex) {
 	if(vertex[curVertex] == NULL) {
 		vertex[curVertex] = new Vertex(curVertex);
+		++curVertexSize;
 	}
 	vertex[curVertex]->insertEdge(nextVertex);
+	vertex[nextVertex]->incInDegree();
+	++curEdgeSize;
 }
 
 void Graph::printGraph() {
+	printf("PRINT GRAPH\n");
 	if(vertex[0]->getEdgeHead()->getCost() == NON_WEIGHT) {
 		printNonWeightedGraph();
 	}
@@ -87,37 +105,64 @@ void Graph::printWeightedGraph() {
 		}	printf("\n");
 	}
 }
+void Graph::printIndegree() {
+	for(int index=0; index<vertexSize; ++index) {
+		printf("\tVERTEX (%2d) : INDEGREE(%2d)\n",vertex[index]->getVertexID(),vertex[index]->getInDegree());
+	}
+}
 
 void Graph::topologicalSort() {
+	printf("TOPOLOGICAL SORT\n");
 	Queue<Vertex>* queue = new Queue<Vertex>(vertexSize);
+	Queue<Vertex>* order = new Queue<Vertex>(vertexSize);
 
 	for(int i=0; i<vertexSize; ++i) {
 		if(vertex[i]->getInDegree() == 0) {
 			queue->enQueue(vertex[i]);
+			order->enQueue(vertex[i]);
 		}
 	}
 
 	while( !queue->isEmpty() ) { //If Queue is not empty, DAG case.
 		Vertex* v = queue->deQueue();
-		cout << "Vertex " << v->getVertexID() << endl;
-
 		Edge* e = v->getEdgeHead();
 
 		while(e != NULL) {
 			if( vertex[e->getVertexID()]->decInDegree() == 0 ) {
 				queue->enQueue(vertex[e->getVertexID()]);
+				order->enQueue(vertex[e->getVertexID()]);
 			}
 			e = e->getNext();
 		}
 	}
-	delete queue;
-	queue = NULL;
+
+	printSortedOrder(order);
+
+	delete queue;		queue = NULL;
+	delete order;		order = NULL;
+}
+
+void Graph::printSortedOrder(Queue<Vertex>* sortedQueue) {
+	for(int order=1; order<=vertexSize; ++order) {
+		printf("\tORDER(%2d) -- VERTEX %2d\n",order,(sortedQueue->deQueue())->getVertexID());
+	}
 }
 
 void Graph::resetSPRMetrics() {
 	for(int index=0; index<vertexSize; ++index) {
 		vertex[index]->setKnown(false);
-		vertex[index]->setDist(INFINITY);
-		vertex[index]->setPrev(0);
+		vertex[index]->setDist(DIST_INFINITY);
+		vertex[index]->setPrev(NOT_A_VERTEX);
+		vertex[index]->setDistance(COST_INFINITY);
 	}
+}
+
+void Graph::edgeSort() {
+	for(int index=0; index<vertexSize; ++index) {
+		vertex[index]->edgeSort();
+	}
+}
+
+void Graph::showGraphComplexity() {
+	printf("Graph Complexity-> Vertex Size = %3d and Edge Size = %3d\n",curVertexSize,curEdgeSize);
 }

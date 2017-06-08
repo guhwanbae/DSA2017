@@ -8,9 +8,8 @@
 #include "GraphADT.h"
 
 Vertex::Vertex(int newVertexID) {
-	vertexID = newVertexID;
-	degree = 0;
-	head = NULL;
+	vertexID = newVertexID;	degree = 0;	head = NULL;
+	indegree = 0;
 }
 Vertex::~Vertex() {
 	deleteEdgeKeys();
@@ -30,7 +29,12 @@ void Vertex::insertEdge(int newVertexID) {
 		head = new Edge(newVertexID,NON_WEIGHT,NULL);
 	}
 	else {
-		head->insertEdge(newVertexID);
+		Edge* temp1 = head, *temp2;
+		while(temp1 != NULL) {
+			temp2 = temp1;
+			temp1 = temp1->getNext();
+		}
+		temp2->setNext(new Edge(newVertexID,NON_WEIGHT,NULL));
 	}
 	degree++;
 }
@@ -39,7 +43,12 @@ void Vertex::insertEdge(int newVertexID, double newCost) {
 		head = new Edge(newVertexID,newCost,NULL);
 	}
 	else {
-		head->insertEdge(newVertexID,newCost);
+		Edge* temp1 = head, *temp2;
+		while(temp1 != NULL) {
+			temp2 = temp1;
+			temp1 = temp1->getNext();
+		}
+		temp2->setNext(new Edge(newVertexID,newCost,NULL));
 	}
 	degree++;
 }
@@ -47,6 +56,9 @@ void Vertex::insertEdge(int newVertexID, double newCost) {
 /* Decrease Indegree */
 int Vertex::decInDegree() {
 	return --indegree;
+}
+void Vertex::incInDegree() {
+	++indegree;
 }
 
 //Encapsulation
@@ -69,6 +81,12 @@ int Vertex::getDist() {
 bool Vertex::getKnown() {
 	return known;
 }
+int Vertex::getPrev(){
+	return prev;
+}
+double Vertex::getDistance() {
+	return distance;
+}
 //set
 void Vertex::setKnown(bool newKnown) {
 	known = newKnown;
@@ -78,4 +96,14 @@ void Vertex::setDist(int newDist) {
 }
 void Vertex::setPrev(int newPrev) {
 	prev = newPrev;
+}
+void Vertex::setDistance(double newDistance) {
+	distance = newDistance;
+}
+
+/* For Traversals */
+void Vertex::edgeSort() {
+	SLL<Edge>* sortedEdgeHead = new SLL<Edge> (head,degree);
+	head = sortedEdgeHead->sortEdge();
+	delete sortedEdgeHead; sortedEdgeHead = NULL;
 }

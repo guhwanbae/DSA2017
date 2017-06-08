@@ -28,8 +28,7 @@ DisjointSet::~DisjointSet() {
 
 void DisjointSet::Find(int element) {
 	int count = find(element,COUNT_ZERO);
-	fprintf(fp, "FIND(KEY: %d): COUNT(%d)\n",element,count);
-	printf("FIND(KEY: %d): COUNT(%d)\n",element,count);
+	fprintf(fp, "FIND(KEY: %3d): COUNT(%d)\n",element,count);
 }
 int DisjointSet::find(int element) {
 	if (s[element] < 0) {
@@ -50,9 +49,8 @@ int DisjointSet::find(int element, int count) {
 }
 
 void DisjointSet::FindAndCompress(int element) {
-	int count = findAndCompress(element,COUNT_ZERO);
-	fprintf(fp, "FIND(KEY: %d): COUNT(%d)\n",element,count);
-	printf("FIND(KEY: %d): COUNT(%d)\n",element,count);
+	fprintf(fp, "FIND(KEY: %3d): ",element);
+	findAndCompress(element,COUNT_ZERO);
 }
 int DisjointSet::findAndCompress(int element) {
 	if (s[element] < 0) {
@@ -65,10 +63,11 @@ int DisjointSet::findAndCompress(int element) {
 int DisjointSet::findAndCompress(int element, int count) {
 	++count;
 	if (s[element] < 0) {
-		return count;
+		fprintf(fp, "COUNT(%d)\n",count);
+		return element;
 	}
 	else {
-		return (s[element] = findAndCompress(s[element])); //Call recursion with parent's link.
+		return (s[element] = findAndCompress(s[element],count)); //Call recursion with parent's link.
 	}
 }
 
@@ -76,51 +75,53 @@ void DisjointSet::unionSets(int root1, int root2) {
 	int parent1 = find(root1), parent2 = find(root2);
 
 	if (parent1 == parent2) {
-		printf("UNION(KEY1: %3d, KEY2: %3d): SAME SET\n", root1, root2);
 		fprintf(fp, "UNION(KEY1: %3d, KEY2: %3d): SAME SET\n", root1, root2);
 	}
 	else {
 		s[parent2] = parent1;
-		printf("UNION(KEY1: %3d, KEY2: %3d): NEW ROOT %3d\n", root1, root2, parent1);
 		fprintf(fp, "UNION(KEY1: %3d, KEY2: %3d): NEW ROOT %3d\n", root1, root2, parent1);
 	}
 }
-
+/* The way, called union by size, is to always attach the smaller tree to the root of the larger tree. */
 void DisjointSet::unionBySize(int root1, int root2) {
 	int parent1 = find(root1), parent2 = find(root2);
 
 	if (parent1 == parent2) {
-		printf("UNION BY SIZE(KEY1: %3d, KEY2: %3d): SAME SET\n", root1, root2);
+		fprintf(fp, "UNION(KEY1: %3d, KEY2: %3d): SAME SET\n", root1, root2);
 	}
 	else {
 		if (s[parent2] < s[parent1]) {
 			s[parent2] += s[parent1];
 			s[parent1] = parent2;
+			parent1 = parent2;
 		}
 		else {
 			s[parent1] += s[parent2];
 			s[parent2] = parent1;
 		}
+		fprintf(fp, "UNION(KEY1: %3d, KEY2: %3d): NEW ROOT %3d\tSIZE: %3d\n", root1, root2, parent1, -s[parent1]);
 	}
 }
+/* This implementation, called find(path) compression, is a way of flattening the structure of the tree whenever Find is used on it. */
 void DisjointSet::unionBySizeWithComp(int root1, int root2) {
 	int parent1 = findAndCompress(root1), parent2 = findAndCompress(root2);
 
 	if (parent1 == parent2) {
-		printf("UNION BY SIZE(KEY1: %3d, KEY2: %3d): SAME SET\n", root1, root2);
+		fprintf(fp, "UNION(KEY1: %3d, KEY2: %3d): SAME SET\n", root1, root2);
 	}
 	else {
 		if (s[parent2] < s[parent1]) {
 			s[parent2] += s[parent1];
 			s[parent1] = parent2;
+			parent1 = parent2;
 		}
 		else {
 			s[parent1] += s[parent2];
 			s[parent2] = parent1;
 		}
+		fprintf(fp, "UNION(KEY1: %3d, KEY2: %3d): NEW ROOT %3d\tSIZE: %3d\n", root1, root2, parent1, -s[parent1]);
 	}
 }
-
 void DisjointSet::unionByHeight(int root1, int root2) {
 	int parent1 = find(root1), parent2 = find(root2);
 
@@ -144,10 +145,8 @@ void DisjointSet::unionByHeight(int root1, int root2) {
 }
 
 void DisjointSet::print() {
-	cout << "PRINT DISJOINT SET" << endl;
 	fprintf(fp,"PRINT DISJOINT SET\n");
 	for(int index=0; index < size; ++index) {
-		printf("\ts[%03d] = %3d\n",index,s[index]);
 		fprintf(fp, "\ts[%03d] = %3d\n",index,s[index]);
 	}
 }

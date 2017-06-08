@@ -20,13 +20,9 @@ using namespace std;
 SDS::SDS(int setType) {
 	type = setType;
 	ifp = NULL; ofp = NULL;
-	myDisjointSet = NULL;
 }
 
 SDS::~SDS() {
-	if(myDisjointSet != NULL) {
-		delete myDisjointSet;	myDisjointSet = NULL;
-	}
 	if(ifp != NULL) {
 		fclose(ifp);	ifp = NULL;
 	}
@@ -35,7 +31,7 @@ SDS::~SDS() {
 	}
 }
 
-void SDS::SimulatingBasic() {
+void SDS::FileIO_Basic() {
 	if ((ifp = fopen("input_disjoint_set.txt", "r")) == NULL) {
 		printf("File Open Error(%s)\n", strerror(errno));
 	}
@@ -46,7 +42,7 @@ void SDS::SimulatingBasic() {
 	}
 }
 
-void SDS::SimulatingSize() {
+void SDS::FileIO_Size() {
 	if ((ifp = fopen("input_disjoint_set.txt", "r")) == NULL) {
 		printf("File Open Error(%s)\n", strerror(errno));
 	}
@@ -57,7 +53,7 @@ void SDS::SimulatingSize() {
 	}
 }
 
-void SDS::SimulatingComp() {
+void SDS::FileIO_Comp() {
 	if ((ifp = fopen("input_disjoint_set.txt", "r")) == NULL) {
 		printf("File Open Error(%s)\n", strerror(errno));
 	}
@@ -69,6 +65,10 @@ void SDS::SimulatingComp() {
 }
 
 void SDS::SimulatingBasic() {
+	DisjointSet* myDisjointSet;
+
+	cout << "<Disjoint Set Basic..>" << endl;
+
 	char buffer[MAX_LINE];
 	char *token;
 	int keyVal1, keyVal2;
@@ -92,9 +92,18 @@ void SDS::SimulatingBasic() {
 			}
 		}
 	}
+
+	delete myDisjointSet;
+	myDisjointSet = NULL;
+
+	cout << "<Complete Disjoint Set Basic Simulating..>" << endl << endl;
 }
 
 void SDS::SimulatingSize() {
+	DisjointSet* myDisjointSet;
+
+	cout << "<Disjoint Set Union By Size..>" << endl;
+
 	char buffer[MAX_LINE];
 	char *token;
 	int keyVal1, keyVal2;
@@ -118,9 +127,18 @@ void SDS::SimulatingSize() {
 			}
 		}
 	}
+
+	delete myDisjointSet;
+	myDisjointSet = NULL;
+
+	cout << "<Complete Disjoint Set Union By Size Simulating..>" << endl << endl;
 }
 
 void SDS::SimulatingComp() {
+	DisjointSet* myDisjointSet;
+
+	cout << "<Disjoint Set Union By Size with Find Compression..>" << endl;
+
 	char buffer[MAX_LINE];
 	char *token;
 	int keyVal1, keyVal2;
@@ -144,4 +162,9 @@ void SDS::SimulatingComp() {
 			}
 		}
 	}
+
+	delete myDisjointSet;
+	myDisjointSet = NULL;
+
+	cout << "<Complete Disjoint Set Union By Size with Find Compression Simulating..>" << endl << endl;
 }

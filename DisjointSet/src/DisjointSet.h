@@ -27,8 +27,6 @@
 #define COUNT_ZERO 0
 #endif
 
-#include <stdio.h>
-
 class DisjointSet {
 private :
 	int* s;
@@ -42,6 +40,7 @@ public :
 	void unionBySize(int, int);
 	void unionByHeight(int, int);
 	void unionBySizeWithComp(int, int);
+	void unionWithComp(int, int);
 
 	void Find(int);
 	int find(int);

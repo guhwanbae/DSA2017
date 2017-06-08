@@ -18,7 +18,6 @@ class SDS {
 private :
 	int type;
 	FILE *ifp, *ofp;
-	DisjointSet* myDisjointSet;
 public :
 	SDS(int);
 	~SDS();

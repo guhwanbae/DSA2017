@@ -18,9 +18,13 @@ Graph::Graph(int vSize, int eSize) {
 
 	curVertexSize = 0;
 	curEdgeSize = 0;
+
+	dist = NULL;
+	prev = NULL;
 }
 Graph::~Graph() {
 	deleteVertexKeys();
+	deleteDistPrevMat();
 	delete[] vertex;
 	vertex = NULL;
 }
@@ -42,6 +46,20 @@ void Graph::deleteVertexKeys() {
 void Graph::clearVertex() {
 	for(int index=0; index<vertexSize; ++index) {
 		vertex[index] = NULL;
+	}
+}
+void Graph::deleteDistPrevMat() {
+	if(dist != NULL) {
+		for(int index=0; index<vertexSize; ++index) {
+			delete dist[index];
+		}
+		delete[] dist;
+	}
+	if(prev != NULL) {
+		for(int index=0; index<vertexSize; ++index) {
+			delete prev[index];
+		}
+		delete[] prev;
 	}
 }
 

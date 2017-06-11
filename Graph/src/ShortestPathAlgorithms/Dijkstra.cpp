@@ -7,6 +7,7 @@
 
 #include "../GraphADT/GraphADT.h"
 
+/* Single Source and Single Destination Shortest Path Problem */
 void Graph::dijkstra(int sourceID) {
 	printf("DIJKSTRA (SRC: %2d)\n",sourceID);
 	resetSPRMetrics(); //v->distance = COST_INFINITY

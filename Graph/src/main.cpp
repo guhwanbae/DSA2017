@@ -73,6 +73,7 @@ int main(int argc, char** argv) {
 	delete simulGraph; simulGraph = NULL;
 
 	Graph* simulGraph2 = new Graph(7,12);
+	/*
 	simulGraph2->insertEdge(0,1,5.0);
 	simulGraph2->insertEdge(0,2,10.0);
 	simulGraph2->insertEdge(0,3,9.0);
@@ -87,6 +88,7 @@ int main(int argc, char** argv) {
 	simulGraph2->insertEdge(5,6,2.0);
 
 	simulGraph2->dijkstra(0);
+	*/
 
 	simulGraph = new Graph(15,50);
 	simulGraph->showGraphComplexity();
@@ -174,6 +176,11 @@ int main(int argc, char** argv) {
 	clockRun(CLOCK_BEGIN);
 	simulGraph->dijkstra(14);
 	cout << "PROCESS : Dijkstra Algorithm(Shortest Path Algorithm\t";	clockRun(CLOCK_END);
+	cout << endl;
+
+	clockRun(CLOCK_BEGIN);
+	simulGraph->floydWarshall();
+	cout << "PROCESS : Floyd Warshall Algorithm(Shortest Path Algorithm\t";	clockRun(CLOCK_END);
 	cout << endl;
 
 

@@ -58,4 +58,3 @@ void Graph::printSingleSourceShortestPaths(int sourceID,int type) {
 
 	delete stack; stack = NULL;
 }
-

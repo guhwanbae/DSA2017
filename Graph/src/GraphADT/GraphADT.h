@@ -88,6 +88,9 @@ private :
 
 	int curVertexSize;
 	int curEdgeSize;
+private : //For Floyd Warshall Algorithm
+	double** dist;
+	int** prev;
 public :
 	//Basic Graph ADT
 	Graph(int, int);
@@ -110,6 +113,7 @@ public :
 
 private :
 	void initVertexKeys();	void deleteVertexKeys();	void clearVertex();
+	void deleteDistPrevMat();
 	void printNonWeightedGraph();	void printWeightedGraph();
 	void printSortedOrder(Queue<Vertex>*);		void printIndegree();
 
@@ -120,7 +124,9 @@ private :
 
 private :
 	void dijkstra(Vertex*); //Dijkstra Algorithm
+	void floydWarshall(int);	void setDistPrevMat();
 	void printSingleSourceShortestPaths(int,int);
+	void printAllPairsShortestPaths();
 };
 
 #ifndef DIST_INFINITY

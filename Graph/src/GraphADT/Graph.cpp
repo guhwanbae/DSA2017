@@ -53,13 +53,13 @@ void Graph::deleteDistPrevMat() {
 		for(int index=0; index<vertexSize; ++index) {
 			delete dist[index];
 		}
-		delete[] dist;
+		delete[] dist;	dist = NULL;
 	}
 	if(prev != NULL) {
 		for(int index=0; index<vertexSize; ++index) {
 			delete prev[index];
 		}
-		delete[] prev;
+		delete[] prev;	prev = NULL;
 	}
 }
 

@@ -9,7 +9,7 @@
 
 /* All pairs Shortest Path Problem */
 void Graph::floydWarshall() {
-	printf("FLOYD-WARSHALL\n");
+	fprintf(fp,"FLOYD-WARSHALL\n");
 	floydWarshall(0);
 	printAllPairsShortestPaths();
 }

@@ -57,11 +57,10 @@ typedef double refType;
 /* Generic Type Heap ADT */
 template<typename T>
 class BinaryHeap{
-	// TODO :
-		// Reference of compare !! => keys[index]->getDistance()
-		// getDistance return double type key!!
-		// please modify refType(typedef)
-		// please modify getRefKey(function)
+/* Reference of compare !! => keys[index]->getDistance()
+ * getDistance return double type key!!
+ * !If you want to change heap-order with a different Reference value,
+ * change the getRef() function and the type of Reference value(typedef keyValType)!*/
 private :
 	T** keys;
 	int heapSize;
@@ -76,10 +75,12 @@ private :
 	int findIndex(T*);
 private :
 	void swap(T*&,T*&);
-	void Traverse();
+
 public :
 	BinaryHeap(int);
 	~BinaryHeap();
+
+	void Traverse();
 
 	void buildHeap(T** ,int);
 	void insert(T*);
@@ -147,7 +148,8 @@ template<typename T>
 void BinaryHeap<T>::Traverse()  {
 	printf("cur Size : %d\t",curSize);
 	for(int index=ROOT_INDEX; index<=curSize; ++index) {
-		printf("INDEX(%d) RefKey : %f -> ",index, getRefKey(keys[index]));
+		printf("INDEX(%2d) RefKey : %2.1f -> ",index, getRefKey(keys[index]));
+		printf("E(%2d,%2d)\n",keys[index]->getSourceID(),keys[index]->getVertexID());
 	}
 	printf("\n");
 }
@@ -210,11 +212,12 @@ void BinaryHeap<T>::insert(T* element) {
 		}
 		keys[index] = element;
 	}
+	//this->Traverse();
 }
 template<typename T>
 T* BinaryHeap<T>::deleteMin() {
 	if(isEmpty()) {
-		printf("#Error:Heap:HEAP is Empty!\n");
+		//printf("#Error:Heap:HEAP is Empty!\n");
 		return SENTINEL; //HEAP EMPTY!
 	}
 	T* rootElement = keys[ROOT_INDEX];

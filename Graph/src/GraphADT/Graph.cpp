@@ -9,7 +9,12 @@
 #include <stdio.h>
 #include "GraphADT.h"
 
-Graph::Graph(int vSize, int eSize) {
+/****************************************************************************
+ * THE FUNTIONAL IMPLEMENTAIONS OF THE GRAPH ADT                   *
+ ****************************************************************************/
+Graph::Graph(int vSize, int eSize, FILE* ofp) {
+	fp = ofp;
+
 	//Build Graph -> Vertex**
 	vertex = new Vertex*[vSize];
 	vertexSize = vSize;
@@ -21,14 +26,17 @@ Graph::Graph(int vSize, int eSize) {
 
 	dist = NULL;
 	prev = NULL;
+
+	printf("# GRAPH : Make a new Graph..\n");
 }
 Graph::~Graph() {
 	deleteVertexKeys();
 	deleteDistPrevMat();
 	delete[] vertex;
 	vertex = NULL;
-}
 
+	printf("# GRAPH : Delete Graph..\n");
+}
 
 void Graph::initVertexKeys() {
 	curVertexSize = vertexSize;
@@ -64,26 +72,26 @@ void Graph::deleteDistPrevMat() {
 }
 
 void Graph::insertEdge(int curVertex, int nextVertex, double newCost) {
-	if(vertex[curVertex] == NULL) {
+	if(vertex[curVertex] == NULL) { //Assign a new memory space if there is no Vertex.
 		vertex[curVertex] = new Vertex(curVertex);
 		++curVertexSize;
 	}
-	vertex[curVertex]->insertEdge(nextVertex,newCost);
-	vertex[nextVertex]->incInDegree();
+	vertex[curVertex]->insertEdge(curVertex,nextVertex,newCost); //Insert the Edge that connects from current Vertex to next Vertex.
+	vertex[nextVertex]->incInDegree(); //Increase the indegree value of the next Vertex.
 	++curEdgeSize;
 }
 void Graph::insertEdge(int curVertex, int nextVertex) {
-	if(vertex[curVertex] == NULL) {
+	if(vertex[curVertex] == NULL) { //Assign a new memory space if there is no Vertex.
 		vertex[curVertex] = new Vertex(curVertex);
 		++curVertexSize;
 	}
-	vertex[curVertex]->insertEdge(nextVertex);
-	vertex[nextVertex]->incInDegree();
+	vertex[curVertex]->insertEdge(curVertex,nextVertex); //Insert the Edge that connects from current Vertex to next Vertex.
+	vertex[nextVertex]->incInDegree(); //Increase the indegree value of the next Vertex.
 	++curEdgeSize;
 }
 
 void Graph::printGraph() {
-	printf("PRINT GRAPH\n");
+	fprintf(fp,"PRINT GRAPH\n");
 	if(vertex[0]->getEdgeHead()->getCost() == NON_WEIGHT) {
 		printNonWeightedGraph();
 	}
@@ -94,33 +102,33 @@ void Graph::printGraph() {
 void Graph::printNonWeightedGraph() {
 	for(int index=0; index<vertexSize; ++index) {
 		if(vertex[index] != NULL) {
-			printf("\tVERTEX %2d (%d): ",vertex[index]->getVertexID(),vertex[index]->getDegree());
+			fprintf(fp,"\tVERTEX %2d (%d): ",vertex[index]->getVertexID(),vertex[index]->getDegree());
 			Edge* e = vertex[index]->getEdgeHead();
 			while(e != NULL) {
-				printf("(%2d)",e->getVertexID());
-				if( e->getNext() != NULL) {	printf(" -> ");		}
+				fprintf(fp,"(%2d)",e->getVertexID());
+				if( e->getNext() != NULL) {	fprintf(fp," -> ");		}
 				e = e->getNext();
 			}
 		}
 		else {
-			printf("\tVERTEX %2d (%d): ",index,0);
-		}	printf("\n");
+			fprintf(fp,"\tVERTEX %2d (%d): ",index,0);
+		}	fprintf(fp,"\n");
 	}
 }
 void Graph::printWeightedGraph() {
 	for(int index=0; index<vertexSize; ++index) {
 		if(vertex[index] != NULL) {
-			printf("\tVERTEX %2d (%d): ",vertex[index]->getVertexID(),vertex[index]->getDegree());
+			fprintf(fp,"\tVERTEX %2d (%d): ",vertex[index]->getVertexID(),vertex[index]->getDegree());
 			Edge* e = vertex[index]->getEdgeHead();
 			while(e != NULL) {
-				printf("(%2d,%3.1f)",e->getVertexID(),e->getCost());
-				if( e->getNext() != NULL) {	printf(" -> ");		}
+				fprintf(fp,"(%2d, %3.1f)",e->getVertexID(),e->getCost());
+				if( e->getNext() != NULL) {	fprintf(fp," -> ");		}
 				e = e->getNext();
 			}
 		}
 		else {
-			printf("\tVERTEX %2d (%d): ",index,0);
-		}	printf("\n");
+			fprintf(fp,"\tVERTEX %2d (%d): ",index,0);
+		}	fprintf(fp,"\n");
 	}
 }
 void Graph::printIndegree() {
@@ -130,9 +138,9 @@ void Graph::printIndegree() {
 }
 
 void Graph::topologicalSort() {
-	printf("TOPOLOGICAL SORT\n");
+	fprintf(fp,"TOPOLOGICAL SORT\n");
 	Queue<Vertex>* queue = new Queue<Vertex>(vertexSize);
-	Queue<Vertex>* order = new Queue<Vertex>(vertexSize);
+	Queue<Vertex>* order = new Queue<Vertex>(vertexSize);	//This Queue is used to track ouput values.
 
 	for(int i=0; i<vertexSize; ++i) {
 		if(vertex[i]->getInDegree() == 0) {
@@ -162,7 +170,7 @@ void Graph::topologicalSort() {
 
 void Graph::printSortedOrder(Queue<Vertex>* sortedQueue) {
 	for(int order=1; order<=vertexSize; ++order) {
-		printf("\tORDER(%2d) -- VERTEX %2d\n",order,(sortedQueue->deQueue())->getVertexID());
+		fprintf(fp,"\tORDER(%2d) -- VERTEX %2d\n",order,(sortedQueue->deQueue())->getVertexID());
 	}
 }
 
@@ -182,5 +190,5 @@ void Graph::edgeSort() {
 }
 
 void Graph::showGraphComplexity() {
-	printf("Graph Complexity-> Vertex Size = %3d and Edge Size = %3d\n",curVertexSize,curEdgeSize);
+	printf("G(V,E) = G(%3d,%3d)\n",curVertexSize,curEdgeSize);
 }

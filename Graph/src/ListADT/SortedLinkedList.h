@@ -14,6 +14,15 @@
 typedef int keyValType;
 
 /* Sort Edges -> Sorted Linked List */
+/* The SLL Class is a method for arranging a Linked List.
+ * Sort the Nodes in the Linked List in a specific order,
+ * and Linking the sorted Nodes again to return their head-pointer(head-Node).
+ * !If you want to sort the Linked List with a different Reference value,
+ * change the getRef() function and the type of Reference value(typedef keyValType)!*/
+
+/****************************************************************************
+ * THE FUNTIONAL IMPLEMENTAIONS OF SORTED LINKED LIST              *
+ ****************************************************************************/
 template<typename T>
 class SLL {
 private :
@@ -25,12 +34,10 @@ public :
 	~SLL();
 
 	T* sortEdge();
-	/*
-	 * Ref of Sorting = KeyVal!!
-	 * VertexID of Edge(Type int) = KeyVal
-	 */
 private :
 	void initKeys();
+
+	keyValType getRef(T*);
 
 	void insertionSort(int, int);
 	void quickSort(int,int);
@@ -67,12 +74,22 @@ void SLL<T>::initKeys() {
 
 template<typename T>
 T* SLL<T>::sortEdge(){
-	quickSort(0,size-1);
+	quickSort(0,size-1); //Sort the Nodes in the Linked List in a specific order.
 	head = keys[0];
 
-	linking();
+	linking(); //Linking the sorted Nodes again.
 
-	return head;
+	return head; //Return their head-pointer(head-Node).
+}
+
+template<typename T>
+keyValType SLL<T>::getRef(T* element) { //Set the reference value for the sorting.
+	if(element == NULL) {
+		return 0;
+	}
+	else {
+		return element->getVertexID(); //In this case, it is sorted by the Vertex ID. VertexID = elemente->getVertexID().
+	}
 }
 
 template<typename T>
@@ -81,7 +98,7 @@ void SLL<T>::insertionSort(int left, int right) {
 
 	for(i=left;i<=right;++i) {
 		temp = keys[i];
-		for(j=i;j>0 && temp->getVertexID()<keys[j-1]->getVertexID();--j) {
+		for(j=i;j>0 && getRef(temp) < getRef(keys[j-1]); --j) {
 			keys[j] = keys[j-1];
 		}
 		keys[j] = temp;
@@ -90,13 +107,13 @@ void SLL<T>::insertionSort(int left, int right) {
 
 template<typename T>
 void SLL<T>::quickSort(int left, int right) {
-	if(left + MIN_QUICKSORT_SIZE <= right) {
+	if(left + MIN_QUICKSORT_SIZE <= right) { //If the size of the alignment is less than 10, the Insertion Sort is faster than Quick Sort.
 		keyValType pivot = median(left,right);
 		int i=left; int j=right-1;
 
 		for(;;) {
-			while(keys[++i]->getVertexID() < pivot);
-			while(keys[--j]->getVertexID() > pivot);
+			while(getRef(keys[++i]) < pivot);
+			while(getRef(keys[--j]) > pivot);
 
 			if(i < j)
 				swap(i,j);
@@ -119,16 +136,16 @@ template<typename T>
 keyValType SLL<T>::median(int left, int right) {
 	int center = (left+right)/2;
 
-	if(keys[left]->getVertexID() > keys[center]->getVertexID())
+	if( getRef(keys[left]) > getRef(keys[center]) )
 		swap(left,center);
-	if(keys[left]->getVertexID() > keys[right]->getVertexID())
+	if( getRef(keys[left]) > getRef(keys[right]) )
 		swap(left,right);
-	if(keys[center]->getVertexID() > keys[right]->getVertexID())
+	if( getRef(keys[center]) > getRef(keys[right]) )
 		swap(center,right);
 
 	swap(center,right-1);
 
-	return keys[right-1]->getVertexID();
+	return getRef(keys[right-1]);
 }
 
 template<typename T>
@@ -140,13 +157,13 @@ void SLL<T>::swap(int x, int y) {
 }
 
 template<typename T>
-void SLL<T>::linking() {
+void SLL<T>::linking() { //Reconnect the Sorted Nodes to one Linked List.
 	for(int index=0; index<size; ++index){
 			if(index == size-1) {
 			keys[index]->setNext(NULL); //Set tail
 			break;
 		}
-		else {
+		else { //Linking the next.
 			keys[index]->setNext(keys[index+1]);
 		}
 	}

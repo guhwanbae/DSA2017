@@ -11,9 +11,9 @@ void Graph::printAllPairsShortestPaths() {
 	Stack<int>* stack = new Stack<int>(vertexSize);
 
 	for (int sourceID=0; sourceID < vertexSize; ++sourceID) {
-		printf("\tSOURCE VERTEX %2d\n",vertex[sourceID]->getVertexID());
+		fprintf(fp,"\tSOURCE VERTEX %2d\n",vertex[sourceID]->getVertexID());
 		for(int destinationID=0; destinationID< vertexSize; ++destinationID) {
-			printf("\t\tVERTEX %2d DIST(%2.1f): ",vertex[destinationID]->getVertexID(),dist[vertex[sourceID]->getVertexID()][vertex[destinationID]->getVertexID()]);
+			fprintf(fp,"\t\tVERTEX %2d DIST(%2.1f): ",vertex[destinationID]->getVertexID(),dist[vertex[sourceID]->getVertexID()][vertex[destinationID]->getVertexID()]);
 			int curID = destinationID;
 			while (true) {
 				stack->push(vertex[curID]->getVertexID());
@@ -24,12 +24,12 @@ void Graph::printAllPairsShortestPaths() {
 			}
 
 			while(!stack->isEmpty()) {
-				printf("%2d",stack->pop());
+				fprintf(fp,"%2d",stack->pop());
 				if(!stack->isEmpty()) {
-					printf(" -> ");
+					fprintf(fp," -> ");
 				}
 				else {
-					printf("\n"); break;
+					fprintf(fp,"\n"); break;
 				}
 			}
 			stack->clearStack();

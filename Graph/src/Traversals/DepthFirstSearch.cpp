@@ -9,25 +9,24 @@
 
 void Graph::depthFirstSearch(int sourceID) {
 	resetSPRMetrics();
-	printf("DEPTH-FIRST SEARCH (SRC: %2d)\n",sourceID);
+	fprintf(fp,"DEPTH-FIRST SEARCH (SRC: %2d)\n\t",sourceID);
 	depthFirstSearch(vertex[sourceID]);
-	printf("\n");
+	fprintf(fp,"\n");
 }
 
 void Graph::depthFirstSearch(Vertex* source) {
 	source->setKnown(true); //source or root
 
-	printf("%2d -> ",source->getVertexID());
+	fprintf(fp,"%2d",source->getVertexID());
 
 	Edge* e = source->getEdgeHead();
+
 	//Need stack or recursion.
 	while (e != NULL) { //Visit every edges in this vertex.
 		if (!vertex[e->getVertexID()]->getKnown()) {
+			fprintf(fp," -> ");
 			depthFirstSearch(vertex[e->getVertexID()]);
 		}
 		e = e->getNext();
-		if (e == NULL) {
-			printf("back <- "); return;
-		}
-	} printf("back <- ");
+	} //printf("back <- ");
 }

@@ -7,10 +7,15 @@
 
 #include "GraphADT.h"
 
-/* Edge -> Adjacently Sorted Linked List */
-
-Edge::Edge(int newVertexID, double newCost, Edge* newNext) {
+/* Edge -> Adjacently Sorted Linked List
+ * "..ListADT/SortedLinkedList.h"
+ * Class SLL */
+/****************************************************************************
+ * THE FUNTIONAL IMPLEMENTAIONS OF THE EDGE                        *
+ ****************************************************************************/
+Edge::Edge(int newSourceID, int newVertexID, double newCost, Edge* newNext) {
 	vertexID = newVertexID;
+	sourceID = newSourceID;
 	cost = newCost;
 	next = newNext;
 }
@@ -21,7 +26,13 @@ Edge::~Edge() {
 int Edge::getVertexID() {
 	return vertexID;
 }
+int Edge::getSourceID() {
+	return sourceID;
+}
 double Edge::getCost() {
+	return cost;
+}
+double Edge::getDistance() {
 	return cost;
 }
 Edge* Edge::getNext() {

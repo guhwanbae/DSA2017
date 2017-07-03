@@ -9,7 +9,7 @@
 
 /* Single Source and Single Destination Shortest Path Problem */
 void Graph::dijkstra(int sourceID) {
-	printf("DIJKSTRA (SRC: %2d)\n",sourceID);
+	fprintf(fp,"DIJKSTRA (SRC: %2d)\n",sourceID);
 	resetSPRMetrics(); //v->distance = COST_INFINITY
 	dijkstra(vertex[sourceID]);
 	printSingleSourceShortestPaths(sourceID,COST_TYPE_DOUBLE);

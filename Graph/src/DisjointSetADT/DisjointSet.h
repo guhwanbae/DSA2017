@@ -32,7 +32,6 @@ public :
 	~DisjointSet();
 
 	T findAndCompress(int);
-
 	void unionSet(int, int);
 };
 

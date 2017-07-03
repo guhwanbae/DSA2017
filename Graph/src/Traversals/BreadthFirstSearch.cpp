@@ -10,7 +10,7 @@
 void Graph::breadthFirstSearch(int sourceID) {
 	edgeSort();
 	resetSPRMetrics();
-	printf("BREATH-FIRST SEARCH (SRC: %2d)\n",sourceID);
+	fprintf(fp,"BREATH-FIRST SEARCH (SRC: %2d)\n",sourceID);
 	breadthFirstSearch(vertex[sourceID]);
 	printSingleSourceShortestPaths(sourceID);
 }

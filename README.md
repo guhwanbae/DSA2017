@@ -1,2 +1,2 @@
 # DSA2017
-Data Structure and Algorithms 2017
+Data Structures and Algorithms in C++, 2017
